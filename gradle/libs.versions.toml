@@ -1,0 +1,43 @@
+[versions]
+# Project
+android_gradle_plugin = "8.1.4"
+kotlin = "1.9.20"
+ksp = "1.9.20-1.0.14"
+
+# Compose
+compose_bom = "2023.10.01"
+composecompiler = "1.5.4"
+
+# Accompanist
+accompanist = "0.32.0"
+
+# Others
+showkase = "1.0.2"
+ui-tooling-preview-android = "1.5.4"
+
+[libraries]
+# Project
+kotlin_gradle_plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+# AndroidX
+androidx_compose_bom = { module = "androidx.compose:compose-bom", version.ref = "compose_bom" }
+androidx_compose_material3 = "androidx.compose.material3:material3:1.2.0-alpha11"
+
+# Kotlin
+kotlinx_collections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.6"
+
+# Accompanist
+accompanist_systemui = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+
+# Others
+showkase = { module = "com.airbnb.android:showkase", version.ref = "showkase" }
+showkase_processor = { module = "com.airbnb.android:showkase-processor", version.ref = "showkase" }
+ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "ui-tooling-preview-android" }
+
+[bundles]
+
+[plugins]
+android_library = { id = "com.android.library", version.ref = "android_gradle_plugin" }
+kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+maven_publish = { id = "com.vanniktech.maven.publish", version = "0.25.3" }
