@@ -85,7 +85,7 @@ mavenPublishing {
     publishToMavenCentral(SonatypeHost.S01)
     signAllPublications()
 
-    coordinates("io.element.android", "compound-android", "0.0.2")
+    coordinates("io.element.android", "compound-android", "0.0.3-SNAPSHOT")
     if (!providers.gradleProperty("mavenCentralUsername").isPresent) {
         println("No maven central provider")
     }
