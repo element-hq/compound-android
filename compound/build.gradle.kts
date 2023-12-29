@@ -29,6 +29,11 @@ android {
     defaultConfig {
         compileSdk = 34
         minSdk = 23
+
+        vectorDrawables {
+            useSupportLibrary = true
+            generatedDensities()
+        }
     }
 
     compileOptions {
