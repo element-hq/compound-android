@@ -26,8 +26,8 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.ReadOnlyComposable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
@@ -88,14 +88,27 @@ object ElementTheme {
 /* Global variables (application level) */
 internal val LocalCompoundColors = staticCompositionLocalOf { compoundColorsLight }
 
+/**
+ * Sets up the theme for the application, or a part of it.
+ *
+ * @param darkTheme whether to use the dark theme or not. If `true`, the dark theme will be used.
+ * @param applySystemBarsUpdate whether to update the system bars color scheme or not when the theme changes. It's `true` by default.
+ * This is specially useful when you want to apply an alternate theme to a part of the app but don't want it to affect the system bars.
+ * @param lightStatusBar whether to use a light status bar color scheme or not. By default, it's the opposite of [darkTheme].
+ * @param dynamicColor whether to enable MaterialYou or not. It's `false` by default.
+ * @param compoundColors the [SemanticColors] to use. By default it'll automatically use the light or dark theme colors based on the system theme.
+ * @param materialColors the Material 3 [ColorScheme] to use. It'll use either [materialColorSchemeLight] or [materialColorSchemeDark] by default.
+ * @param typography the Material 3 [Typography] tokens to use. It'll use [compoundTypography] by default.
+ * @param content the content to apply the theme to.
+ */
 @Composable
 fun ElementTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
+    applySystemBarsUpdate: Boolean = true,
     lightStatusBar: Boolean = !darkTheme,
     dynamicColor: Boolean = false, /* true to enable MaterialYou */
     compoundColors: SemanticColors = if (darkTheme) compoundColorsDark else compoundColorsLight,
-    materialLightColors: ColorScheme = materialColorSchemeLight,
-    materialDarkColors: ColorScheme = materialColorSchemeDark,
+    materialColors: ColorScheme = if (darkTheme) materialColorSchemeDark else materialColorSchemeLight,
     typography: Typography = compoundTypography,
     content: @Composable () -> Unit,
 ) {
@@ -103,27 +116,33 @@ fun ElementTheme(
     val currentCompoundColor = remember(darkTheme) {
         compoundColors.copy()
     }.apply { updateColorsFrom(compoundColors) }
+
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-        darkTheme -> materialDarkColors
-        else -> materialLightColors
+        else -> materialColors
     }
-    val statusBarColorScheme = if (lightStatusBar) {
-        when {
-            dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-                val context = LocalContext.current
-                dynamicLightColorScheme(context)
-            }
-            else -> materialLightColors
+
+    val statusBarColorScheme = if (dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        val context = LocalContext.current
+        if (darkTheme) {
+            dynamicDarkColorScheme(context)
+        } else {
+            dynamicLightColorScheme(context)
         }
     } else {
         colorScheme
     }
-    SideEffect {
-        systemUiController.applyTheme(colorScheme = statusBarColorScheme, darkTheme = darkTheme && !lightStatusBar)
+
+    if (applySystemBarsUpdate) {
+        LaunchedEffect(statusBarColorScheme, darkTheme, lightStatusBar) {
+            systemUiController.applyTheme(
+                colorScheme = statusBarColorScheme,
+                darkTheme = darkTheme && !lightStatusBar
+            )
+        }
     }
     CompositionLocalProvider(
         LocalCompoundColors provides currentCompoundColor,
