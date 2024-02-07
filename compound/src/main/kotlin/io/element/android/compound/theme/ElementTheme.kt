@@ -88,6 +88,19 @@ object ElementTheme {
 /* Global variables (application level) */
 internal val LocalCompoundColors = staticCompositionLocalOf { compoundColorsLight }
 
+/**
+ * Sets up the theme for the application, or a part of it.
+ *
+ * @param darkTheme whether to use the dark theme or not. If `true`, the dark theme will be used.
+ * @param applySystemBarsUpdate whether to update the system bars color scheme or not when the theme changes. It's `true` by default.
+ * This is specially useful when you want to apply an alternate theme to a part of the app but don't want it to affect the system bars.
+ * @param lightStatusBar whether to use a light status bar color scheme or not. By default, it's the opposite of [darkTheme].
+ * @param dynamicColor whether to enable MaterialYou or not. It's `false` by default.
+ * @param compoundColors the [SemanticColors] to use. By default it'll automatically use the light or dark theme colors based on the system theme.
+ * @param materialColors the Material 3 [ColorScheme] to use. It'll use either [materialColorSchemeLight] or [materialColorSchemeDark] by default.
+ * @param typography the Material 3 [Typography] tokens to use. It'll use [compoundTypography] by default.
+ * @param content the content to apply the theme to.
+ */
 @Composable
 fun ElementTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
