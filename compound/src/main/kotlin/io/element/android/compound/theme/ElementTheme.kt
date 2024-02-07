@@ -26,8 +26,8 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.ReadOnlyComposable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
@@ -91,6 +91,7 @@ internal val LocalCompoundColors = staticCompositionLocalOf { compoundColorsLigh
 @Composable
 fun ElementTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
+    applySystemBarsUpdate: Boolean = true,
     lightStatusBar: Boolean = !darkTheme,
     dynamicColor: Boolean = false, /* true to enable MaterialYou */
     compoundColors: SemanticColors = if (darkTheme) compoundColorsDark else compoundColorsLight,
@@ -122,8 +123,13 @@ fun ElementTheme(
     } else {
         colorScheme
     }
-    SideEffect {
-        systemUiController.applyTheme(colorScheme = statusBarColorScheme, darkTheme = darkTheme && !lightStatusBar)
+    if (applySystemBarsUpdate) {
+        LaunchedEffect(statusBarColorScheme, darkTheme, lightStatusBar) {
+            systemUiController.applyTheme(
+                colorScheme = statusBarColorScheme,
+                darkTheme = darkTheme && !lightStatusBar
+            )
+        }
     }
     CompositionLocalProvider(
         LocalCompoundColors provides currentCompoundColor,
