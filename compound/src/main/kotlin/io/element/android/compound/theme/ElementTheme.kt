@@ -95,8 +95,7 @@ fun ElementTheme(
     lightStatusBar: Boolean = !darkTheme,
     dynamicColor: Boolean = false, /* true to enable MaterialYou */
     compoundColors: SemanticColors = if (darkTheme) compoundColorsDark else compoundColorsLight,
-    materialLightColors: ColorScheme = materialColorSchemeLight,
-    materialDarkColors: ColorScheme = materialColorSchemeDark,
+    materialColors: ColorScheme = if (darkTheme) materialColorSchemeDark else materialColorSchemeLight,
     typography: Typography = compoundTypography,
     content: @Composable () -> Unit,
 ) {
@@ -104,25 +103,26 @@ fun ElementTheme(
     val currentCompoundColor = remember(darkTheme) {
         compoundColors.copy()
     }.apply { updateColorsFrom(compoundColors) }
+
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-        darkTheme -> materialDarkColors
-        else -> materialLightColors
+        else -> materialColors
     }
-    val statusBarColorScheme = if (lightStatusBar) {
-        when {
-            dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-                val context = LocalContext.current
-                dynamicLightColorScheme(context)
-            }
-            else -> materialLightColors
+
+    val statusBarColorScheme = if (dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        val context = LocalContext.current
+        if (darkTheme) {
+            dynamicDarkColorScheme(context)
+        } else {
+            dynamicLightColorScheme(context)
         }
     } else {
         colorScheme
     }
+
     if (applySystemBarsUpdate) {
         LaunchedEffect(statusBarColorScheme, darkTheme, lightStatusBar) {
             systemUiController.applyTheme(
