@@ -1,39 +1,40 @@
 package io.element.android.compound.screenshot
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import app.cash.paparazzi.Paparazzi
-import app.cash.paparazzi.detectEnvironment
-import com.android.ide.common.rendering.api.SessionParams
+import androidx.compose.ui.unit.dp
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.github.takahirom.roborazzi.captureRoboImage
 import io.element.android.compound.previews.ColorPreview
-import io.element.android.compound.theme.AvatarColorsDarkPreview
-import io.element.android.compound.theme.AvatarColorsLightPreview
 import io.element.android.compound.theme.ElementTheme
 import io.element.android.compound.theme.LinkColor
 import io.element.android.compound.theme.SnackBarLabelColorDark
 import io.element.android.compound.theme.SnackBarLabelColorLight
-import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.annotation.Config
+import org.robolectric.annotation.GraphicsMode
 
+@RunWith(AndroidJUnit4::class)
+@GraphicsMode(GraphicsMode.Mode.NATIVE)
 class LegacyColorsTests {
-    @get:Rule
-    val paparazzi = Paparazzi(
-        environment = detectEnvironment().run {
-            // Workaround to work with API 34 (https://github.com/cashapp/paparazzi/issues/1025)
-            copy(compileSdkVersion = 33, platformDir = platformDir.replace("34", "33"))
-        },
-        maxPercentDifference = 0.01,
-        renderingMode = SessionParams.RenderingMode.SHRINK,
-    )
-
     @Test
-    fun `List`() {
-        paparazzi.snapshot {
+    @Config(sdk = [34], qualifiers = "xxhdpi")
+    fun screenshots() {
+        captureRoboImage(filePath = "screenshots/Legacy Colors.png") {
             ElementTheme {
                 Surface {
-                    Column {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(text = "Legacy Colors")
+                        Spacer(modifier = Modifier.height(10.dp))
                         LegacyColorPreview(
                             color = LinkColor,
                             name = "Link"

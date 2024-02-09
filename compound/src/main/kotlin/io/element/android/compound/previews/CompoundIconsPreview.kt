@@ -1,12 +1,19 @@
 package io.element.android.compound.previews
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,97 +24,86 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewParameter
-import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import io.element.android.compound.theme.ElementTheme
 import io.element.android.compound.tokens.generated.CompoundIcons
-import kotlinx.collections.immutable.ImmutableList
-import kotlinx.collections.immutable.toPersistentList
 
-internal class CompoundIconListPreviewProvider : PreviewParameterProvider<IconChunk> {
-    override val values: Sequence<IconChunk>
-        get() {
-            val chunks = CompoundIcons.allResIds.chunked(36)
-            return chunks.mapIndexed { index, chunk ->
-                IconChunk(index = index + 1, total = chunks.size, icons = chunk.toPersistentList())
-            }
-                .asSequence()
-        }
-}
-data class IconChunk(
-    val index: Int,
-    val total: Int,
-    val icons: ImmutableList<Int>,
-) {
-    override fun toString(): String {
-        return index.toString()
-    }
+@Preview(widthDp = 730, heightDp = 1600)
+@Composable
+internal fun IconsCompoundPreviewLight() = ElementTheme {
+    IconsCompoundPreview()
 }
 
-@Preview
+@Preview(widthDp = 730, heightDp = 1600)
 @Composable
-internal fun IconsCompoundPreviewLight(@PreviewParameter(CompoundIconListPreviewProvider::class) chunk: IconChunk) =
-    ElementTheme {
-        IconsPreview(
-            title = "R.drawable.ic_compound_* ${chunk.index}/${chunk.total}",
-            iconsList = chunk.icons,
-            iconNameTransform = { name ->
-                name.removePrefix("ic_compound_")
-                    .replace("_", " ")
-            }
-        )
-    }
-
-@Preview
-@Composable
-internal fun IconsCompoundPreviewDark(@PreviewParameter(CompoundIconListPreviewProvider::class) chunk: IconChunk) =
-    ElementTheme(darkTheme = true) {
-        IconsPreview(
-            title = "R.drawable.ic_compound_* ${chunk.index}/${chunk.total}",
-            iconsList = chunk.icons,
-            iconNameTransform = { name ->
-                name.removePrefix("ic_compound_")
-                    .replace("_", " ")
-            }
-        )
-    }
+internal fun IconsCompoundPreviewDark() = ElementTheme(darkTheme = true) {
+    IconsCompoundPreview()
+}
 
 @Composable
-private fun IconsPreview(
-    title: String,
-    iconsList: ImmutableList<Int>,
-    iconNameTransform: (String) -> String,
-) = Surface {
+private fun IconsCompoundPreview() {
     val context = LocalContext.current
-    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+    val content: Sequence<@Composable ColumnScope.() -> Unit> = sequence {
+        for (icon in CompoundIcons.allResIds) {
+            yield {
+                Icon(
+                    modifier = Modifier.size(32.dp),
+                    imageVector = ImageVector.vectorResource(icon),
+                    contentDescription = null,
+                )
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = context.resources.getResourceEntryName(icon)
+                        .removePrefix("ic_compound_")
+                        .replace("_", " "),
+                    textAlign = TextAlign.Center,
+                    style = ElementTheme.typography.fontBodyXsMedium,
+                    color = ElementTheme.colors.textSecondary,
+                )
+            }
+        }
+    }
+    IconsPreview(
+        title = "Compound Icons",
+        content = content.toList(),
+    )
+}
+
+@Composable
+internal fun IconsPreview(
+    title: String,
+    content: List<@Composable ColumnScope.() -> Unit>,
+) = Surface {
+    Column(
+        modifier = Modifier
+            .background(MaterialTheme.colorScheme.surfaceVariant)
+            .padding(16.dp)
+            .width(IntrinsicSize.Max),
+        verticalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
         Text(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp),
             style = ElementTheme.typography.fontHeadingSmMedium,
             text = title,
             textAlign = TextAlign.Center,
         )
-        iconsList.chunked(6).forEach { iconsRow ->
-            Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
-                iconsRow.forEach { icon ->
+        content.chunked(10).forEach { chunk ->
+            Row(
+                modifier = Modifier.height(IntrinsicSize.Max),
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+                chunk.forEach { icon ->
                     Column(
-                        modifier = Modifier.width(48.dp),
+                        modifier = Modifier
+                            .background(MaterialTheme.colorScheme.background)
+                            .fillMaxHeight()
+                            .width(64.dp)
+                            .padding(4.dp),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
-                        Icon(
-                            modifier = Modifier.padding(2.dp),
-                            imageVector = ImageVector.vectorResource(icon),
-                            contentDescription = null,
-                        )
-                        Text(
-                            text = iconNameTransform(
-                                context.resources.getResourceEntryName(icon)
-                            ),
-                            modifier = Modifier.fillMaxWidth(),
-                            textAlign = TextAlign.Center,
-                            style = ElementTheme.typography.fontBodyXsMedium,
-                            color = ElementTheme.colors.textSecondary,
-                        )
+                        icon()
                     }
                 }
             }

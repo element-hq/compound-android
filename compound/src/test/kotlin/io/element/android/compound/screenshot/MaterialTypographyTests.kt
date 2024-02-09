@@ -7,32 +7,26 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import app.cash.paparazzi.Paparazzi
-import app.cash.paparazzi.detectEnvironment
-import com.android.ide.common.rendering.api.SessionParams
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.github.takahirom.roborazzi.captureRoboImage
 import io.element.android.compound.theme.ElementTheme
 import io.element.android.compound.tokens.compoundTypography
-import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.annotation.Config
+import org.robolectric.annotation.GraphicsMode
 
+@RunWith(AndroidJUnit4::class)
+@GraphicsMode(GraphicsMode.Mode.NATIVE)
 class MaterialTypographyTests {
-    @get:Rule
-    val paparazzi = Paparazzi(
-        environment = detectEnvironment().run {
-            // Workaround to work with API 34 (https://github.com/cashapp/paparazzi/issues/1025)
-            copy(compileSdkVersion = 33, platformDir = platformDir.replace("34", "33"))
-        },
-        maxPercentDifference = 0.01,
-        renderingMode = SessionParams.RenderingMode.FULL_EXPAND,
-    )
-
     @Test
-    fun `Compound Typography`() {
-        paparazzi.snapshot {
+    @Config(sdk = [34], qualifiers = "h2048dp-xxhdpi")
+    fun screenshots() {
+        captureRoboImage(filePath = "screenshots/Material Typography.png") {
             ElementTheme {
                 Surface {
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                        with(compoundTypography) {
+                        with(ElementTheme.materialTypography) {
                             TypographyTokenPreview(displayLarge, "Display large")
                             TypographyTokenPreview(displayMedium, "Display medium")
                             TypographyTokenPreview(displaySmall, "Display small")

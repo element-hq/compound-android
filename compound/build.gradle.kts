@@ -21,8 +21,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.maven.publish)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.paparazzi)
     alias(libs.plugins.kover)
+    alias(libs.plugins.roborazzi)
 }
 
 android {
@@ -82,19 +82,20 @@ android {
 
         testImplementation(libs.test.junit)
         testImplementation(libs.test.parameter.injector)
-        // Paparazzi 1.3.2 workaround (see https://github.com/cashapp/paparazzi/blob/master/CHANGELOG.md#132---2024-01-13)
-        constraints.add("testImplementation", "com.google.guava:guava") {
-            attributes {
-                attribute(
-                    TargetJvmEnvironment.TARGET_JVM_ENVIRONMENT_ATTRIBUTE,
-                    objects.named(TargetJvmEnvironment::class.java, TargetJvmEnvironment.STANDARD_JVM)
-                )
-            }
-            because(
-                "LayoutLib and sdk-common depend on Guava's -jre published variant." +
-                        "See https://github.com/cashapp/paparazzi/issues/906."
-            )
-        }
+
+//        debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.0")
+        testImplementation(libs.androidx.activity.activity)
+        testImplementation(libs.androidx.activity.compose)
+        testImplementation(libs.androidx.compose.ui.test.junit)
+        testImplementation(libs.test.robolectric)
+        testImplementation(libs.test.roborazzi)
+        testImplementation(libs.test.roborazzi.compose)
+        testImplementation(libs.test.roborazzi.junit)
+        testImplementation(libs.test.roborazzi.junit)
+        testImplementation(libs.test.core)
+        testImplementation(libs.test.corektx)
+        testImplementation(libs.test.runner)
+        testImplementation(libs.test.espresso.core)
     }
 }
 
@@ -181,7 +182,7 @@ koverReport {
                 "io.element.android.compound.theme.AvatarColorsLightPreviewDefaultGroupAvatarColorsLightPreviewKt",
                 "io.element.android.compound.theme.ColorsSchemeDarkPreviewDefaultGroupColorsSchemeDarkPreviewKt",
                 "io.element.android.compound.theme.ColorsSchemeLightPreviewDefaultGroupColorsSchemeLightPreviewKt",
-                "io.element.android.compound.theme.ComposableSingletons*",
+                "*ComposableSingletons*",
             )
             annotatedBy(
                 "androidx.compose.ui.tooling.preview.Preview",
@@ -213,7 +214,7 @@ koverReport {
     }
 }
 
-val snapshotsDir = File("${projectDir}/src/test/snapshots")
+val snapshotsDir = File("${projectDir}/screenshots")
 val removeOldScreenshotsTask = tasks.register("removeOldSnapshots") {
     onlyIf { snapshotsDir.exists() }
     doFirst {
@@ -222,7 +223,7 @@ val removeOldScreenshotsTask = tasks.register("removeOldSnapshots") {
     }
 }
 afterEvaluate {
-    tasks.findByName("recordPaparazzi")?.dependsOn(removeOldScreenshotsTask)
-    tasks.findByName("recordPaparazziDebug")?.dependsOn(removeOldScreenshotsTask)
-    tasks.findByName("recordPaparazziRelease")?.dependsOn(removeOldScreenshotsTask)
+    tasks.findByName("recordRoborazzi")?.dependsOn(removeOldScreenshotsTask)
+    tasks.findByName("recordRoborazziDebug")?.dependsOn(removeOldScreenshotsTask)
+    tasks.findByName("recordRoborazziRelease")?.dependsOn(removeOldScreenshotsTask)
 }

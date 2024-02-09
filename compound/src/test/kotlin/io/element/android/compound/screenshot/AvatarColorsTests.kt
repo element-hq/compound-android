@@ -1,34 +1,24 @@
 package io.element.android.compound.screenshot
 
-import app.cash.paparazzi.Paparazzi
-import app.cash.paparazzi.detectEnvironment
-import com.android.ide.common.rendering.api.SessionParams
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.github.takahirom.roborazzi.captureRoboImage
 import io.element.android.compound.theme.AvatarColorsDarkPreview
 import io.element.android.compound.theme.AvatarColorsLightPreview
-import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.annotation.Config
+import org.robolectric.annotation.GraphicsMode
 
+@RunWith(AndroidJUnit4::class)
+@GraphicsMode(GraphicsMode.Mode.NATIVE)
 class AvatarColorsTests {
-    @get:Rule
-    val paparazzi = Paparazzi(
-        environment = detectEnvironment().run {
-            // Workaround to work with API 34 (https://github.com/cashapp/paparazzi/issues/1025)
-            copy(compileSdkVersion = 33, platformDir = platformDir.replace("34", "33"))
-        },
-        maxPercentDifference = 0.01,
-        renderingMode = SessionParams.RenderingMode.SHRINK,
-    )
-
     @Test
-    fun `Avatar colors - Light`() {
-        paparazzi.snapshot {
+    @Config(sdk = [34], qualifiers = "xxhdpi")
+    fun screenshots() {
+        captureRoboImage(filePath = "screenshots/Avatar Colors - Light.png") {
             AvatarColorsLightPreview()
         }
-    }
-
-    @Test
-    fun `Avatar colors - Dark`() {
-        paparazzi.snapshot {
+        captureRoboImage(filePath = "screenshots/Avatar Colors - Dark.png") {
             AvatarColorsDarkPreview()
         }
     }
