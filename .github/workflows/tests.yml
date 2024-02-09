@@ -5,7 +5,7 @@ on:
   pull_request:
   merge_group:
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
 
 # Enrich gradle.properties for CI/CD
 env:
@@ -17,9 +17,9 @@ jobs:
     name: Runs unit tests
     runs-on: ubuntu-latest
 
-    # Allow all jobs on main and develop. Just one per PR.
+    # Allow all jobs on main. Just one per PR.
     concurrency:
-      group: ${{ github.ref == 'refs/heads/main' && format('unit-tests-main-{0}', github.sha) || github.ref == 'refs/heads/develop' && format('unit-tests-develop-{0}', github.sha) || format('unit-tests-{0}', github.ref) }}
+      group: ${{ github.ref == 'refs/heads/main' && format('unit-tests-main-{0}', github.sha) || format('unit-tests-{0}', github.ref) }}
       cancel-in-progress: true
     steps:
       # Increase swapfile size to prevent screenshot tests getting terminated
@@ -35,7 +35,7 @@ jobs:
       - name: ⏬ Checkout with LFS
         uses: nschloe/action-cached-lfs-checkout@v1.2.2
         with:
-          # Ensure we are building the branch and not the branch after being merged on develop
+          # Ensure we are building the branch and not the branch after being merged on main
           # https://github.com/actions/checkout/issues/881
           ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.ref }}
       - name: ☕️ Use JDK 17
@@ -46,7 +46,7 @@ jobs:
       - name: Configure gradle
         uses: gradle/gradle-build-action@v2.11.1
         with:
-          cache-read-only: ${{ github.ref != 'refs/heads/develop' }}
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
 
       - name: ⚙️ Run unit tests
         run: ./gradlew testDebugUnitTest $CI_GRADLE_ARG_PROPERTIES

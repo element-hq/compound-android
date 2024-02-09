@@ -64,7 +64,7 @@ jobs:
       - name: Configure gradle
         uses: gradle/gradle-build-action@v2.11.1
         with:
-          cache-read-only: ${{ github.ref != 'refs/heads/develop' }}
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
       - name: Dependency analysis
         run: ./gradlew dependencyCheckAnalyze $CI_GRADLE_ARG_PROPERTIES
       - name: Upload dependency analysis
