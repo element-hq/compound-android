@@ -132,114 +132,114 @@ object CompoundIcons {
     val Warning @Composable get() = ImageVector.vectorResource(R.drawable.ic_warning)
     val WebBrowser @Composable get() = ImageVector.vectorResource(R.drawable.ic_web_browser)
 
-    val all @Composable get() = persistentListOf(
-        ArrowLeft,
-        ArrowRight,
-        ArrowUpRight,
-        Block,
-        Chat,
-        ChatNew,
-        ChatProblem,
-        ChatSolid,
-        Check,
-        CheckCircle,
-        CheckCircleSolid,
-        ChevronDown,
-        ChevronLeft,
-        ChevronRight,
-        ChevronUp,
-        ChevronUpDown,
-        Close,
-        Collapse,
-        Company,
-        Computer,
-        DarkMode,
-        Delete,
-        Download,
-        DragGrid,
-        DragList,
-        Edit,
-        Email,
-        EmailSolid,
-        EndCall,
-        Error,
-        Expand,
-        ExportArchive,
-        Extensions,
-        FavouriteOff,
-        FavouriteOn,
-        Files,
-        Filter,
-        Grid,
-        Help,
-        HelpSolid,
-        Host,
-        Image,
-        Info,
-        InfoSolid,
-        Leave,
-        Link,
-        Lock,
-        LockOff,
-        MarkerReadReceipts,
-        Mention,
-        Menu,
-        MicOffOutline,
-        MicOffSolid,
-        MicOnOutline,
-        MicOnSolid,
-        Mobile,
-        Notifications,
-        NotificationsOff,
-        NotificationsSolid,
-        NotificationsSolidOff,
-        Offline,
-        OverflowHorizontal,
-        OverflowVertical,
-        PinOff,
-        PinOn,
-        Plus,
-        Polls,
-        PollsEnd,
-        PopOut,
-        Public,
-        RoomAdmin,
-        Search,
-        Send,
-        SendSolid,
-        Settings,
-        SettingsSolid,
-        Share,
-        ShareAndroid,
-        ShareScreenOutline,
-        ShareScreenSolid,
-        Spotlight,
-        SwitchCameraSolid,
-        Threads,
-        ThreadsSolid,
-        Unknown,
-        UnknownSolid,
-        UserAdd,
-        UserAddSolid,
-        UserProfile,
-        UserProfileSolid,
-        Verified,
-        VideoCall,
-        VideoCallDeclinedSolid,
-        VideoCallMissedSolid,
-        VideoCallOff,
-        VideoCallOffSolid,
-        VideoCallSolid,
-        VisibilityOff,
-        VisibilityOn,
-        VoiceCall,
-        VolumeOff,
-        VolumeOffSolid,
-        VolumeOn,
-        VolumeOnSolid,
-        Warning,
-        WebBrowser,
-    )
+    val all get() = sequence<@Composable () -> Unit> {
+        yield { ArrowLeft }
+        yield { ArrowRight }
+        yield { ArrowUpRight }
+        yield { Block }
+        yield { Chat }
+        yield { ChatNew }
+        yield { ChatProblem }
+        yield { ChatSolid }
+        yield { Check }
+        yield { CheckCircle }
+        yield { CheckCircleSolid }
+        yield { ChevronDown }
+        yield { ChevronLeft }
+        yield { ChevronRight }
+        yield { ChevronUp }
+        yield { ChevronUpDown }
+        yield { Close }
+        yield { Collapse }
+        yield { Company }
+        yield { Computer }
+        yield { DarkMode }
+        yield { Delete }
+        yield { Download }
+        yield { DragGrid }
+        yield { DragList }
+        yield { Edit }
+        yield { Email }
+        yield { EmailSolid }
+        yield { EndCall }
+        yield { Error }
+        yield { Expand }
+        yield { ExportArchive }
+        yield { Extensions }
+        yield { FavouriteOff }
+        yield { FavouriteOn }
+        yield { Files }
+        yield { Filter }
+        yield { Grid }
+        yield { Help }
+        yield { HelpSolid }
+        yield { Host }
+        yield { Image }
+        yield { Info }
+        yield { InfoSolid }
+        yield { Leave }
+        yield { Link }
+        yield { Lock }
+        yield { LockOff }
+        yield { MarkerReadReceipts }
+        yield { Mention }
+        yield { Menu }
+        yield { MicOffOutline }
+        yield { MicOffSolid }
+        yield { MicOnOutline }
+        yield { MicOnSolid }
+        yield { Mobile }
+        yield { Notifications }
+        yield { NotificationsOff }
+        yield { NotificationsSolid }
+        yield { NotificationsSolidOff }
+        yield { Offline }
+        yield { OverflowHorizontal }
+        yield { OverflowVertical }
+        yield { PinOff }
+        yield { PinOn }
+        yield { Plus }
+        yield { Polls }
+        yield { PollsEnd }
+        yield { PopOut }
+        yield { Public }
+        yield { RoomAdmin }
+        yield { Search }
+        yield { Send }
+        yield { SendSolid }
+        yield { Settings }
+        yield { SettingsSolid }
+        yield { Share }
+        yield { ShareAndroid }
+        yield { ShareScreenOutline }
+        yield { ShareScreenSolid }
+        yield { Spotlight }
+        yield { SwitchCameraSolid }
+        yield { Threads }
+        yield { ThreadsSolid }
+        yield { Unknown }
+        yield { UnknownSolid }
+        yield { UserAdd }
+        yield { UserAddSolid }
+        yield { UserProfile }
+        yield { UserProfileSolid }
+        yield { Verified }
+        yield { VideoCall }
+        yield { VideoCallDeclinedSolid }
+        yield { VideoCallMissedSolid }
+        yield { VideoCallOff }
+        yield { VideoCallOffSolid }
+        yield { VideoCallSolid }
+        yield { VisibilityOff }
+        yield { VisibilityOn }
+        yield { VoiceCall }
+        yield { VolumeOff }
+        yield { VolumeOffSolid }
+        yield { VolumeOn }
+        yield { VolumeOnSolid }
+        yield { Warning }
+        yield { WebBrowser }
+    }
 
     val allResIds get() = persistentListOf(
         R.drawable.ic_arrow_left,

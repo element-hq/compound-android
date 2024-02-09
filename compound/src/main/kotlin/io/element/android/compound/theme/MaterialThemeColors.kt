@@ -94,16 +94,20 @@ internal val materialColorSchemeDark = darkColorScheme(
 
 @Preview
 @Composable
-internal fun ColorsSchemeLightPreview() = ColorsSchemePreview(
-    Color.Black,
-    Color.White,
-    materialColorSchemeLight,
-)
+internal fun ColorsSchemeLightPreview() = ElementTheme {
+    ColorsSchemePreview(
+        Color.Black,
+        Color.White,
+        ElementTheme.materialColors,
+    )
+}
 
 @Preview
 @Composable
-internal fun ColorsSchemeDarkPreview() = ColorsSchemePreview(
-    Color.White,
-    Color.Black,
-    materialColorSchemeDark,
-)
+internal fun ColorsSchemeDarkPreview() = ElementTheme(darkTheme = true) {
+    ColorsSchemePreview(
+        Color.White,
+        Color.Black,
+        materialColorSchemeDark,
+    )
+}
