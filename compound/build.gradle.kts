@@ -88,7 +88,6 @@ android {
         testImplementation(libs.test.roborazzi)
         testImplementation(libs.test.roborazzi.compose)
         testImplementation(libs.test.roborazzi.junit)
-        testImplementation(libs.test.roborazzi.junit)
         testImplementation(libs.test.espresso.core)
     }
 }
@@ -196,9 +195,6 @@ koverReport {
                 entity = kotlinx.kover.gradle.plugin.dsl.GroupingEntityType.APPLICATION
                 bound {
                     minValue = 80
-                    // Setting a max value, so that if coverage is bigger, it means that we have to change minValue.
-                    // For instance if we have minValue = 20 and maxValue = 30, and current code coverage is now 31.32%, update
-                    // minValue to 25 and maxValue to 35.
                     metric = kotlinx.kover.gradle.plugin.dsl.MetricType.INSTRUCTION
                     aggregation = kotlinx.kover.gradle.plugin.dsl.AggregationType.COVERED_PERCENTAGE
                 }
