@@ -81,20 +81,14 @@ android {
         implementation(libs.accompanist.systemui)
 
         testImplementation(libs.test.junit)
-        testImplementation(libs.test.parameter.injector)
 
-//        debugImplementation("androidx.compose.ui:ui-test-manifest:1.6.0")
         testImplementation(libs.androidx.activity.activity)
-        testImplementation(libs.androidx.activity.compose)
         testImplementation(libs.androidx.compose.ui.test.junit)
         testImplementation(libs.test.robolectric)
         testImplementation(libs.test.roborazzi)
         testImplementation(libs.test.roborazzi.compose)
         testImplementation(libs.test.roborazzi.junit)
         testImplementation(libs.test.roborazzi.junit)
-        testImplementation(libs.test.core)
-        testImplementation(libs.test.corektx)
-        testImplementation(libs.test.runner)
         testImplementation(libs.test.espresso.core)
     }
 }
