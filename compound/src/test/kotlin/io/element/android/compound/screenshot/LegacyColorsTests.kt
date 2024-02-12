@@ -1,6 +1,5 @@
 package io.element.android.compound.screenshot
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -14,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.captureRoboImage
 import io.element.android.compound.previews.ColorPreview
+import io.element.android.compound.screenshot.utils.screenshotFile
 import io.element.android.compound.theme.ElementTheme
 import io.element.android.compound.theme.LinkColor
 import io.element.android.compound.theme.SnackBarLabelColorDark
@@ -29,7 +29,7 @@ class LegacyColorsTests {
     @Test
     @Config(sdk = [34], qualifiers = "xxhdpi")
     fun screenshots() {
-        captureRoboImage(filePath = "screenshots/Legacy Colors.png") {
+        captureRoboImage(file = screenshotFile("Legacy Colors.png")) {
             ElementTheme {
                 Surface {
                     Column(modifier = Modifier.padding(16.dp)) {

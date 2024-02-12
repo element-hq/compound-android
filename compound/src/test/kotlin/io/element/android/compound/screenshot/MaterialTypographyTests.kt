@@ -9,8 +9,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.captureRoboImage
+import io.element.android.compound.screenshot.utils.screenshotFile
 import io.element.android.compound.theme.ElementTheme
-import io.element.android.compound.tokens.compoundTypography
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
@@ -22,7 +22,7 @@ class MaterialTypographyTests {
     @Test
     @Config(sdk = [34], qualifiers = "h2048dp-xxhdpi")
     fun screenshots() {
-        captureRoboImage(filePath = "screenshots/Material Typography.png") {
+        captureRoboImage(file = screenshotFile("Material Typography.png")) {
             ElementTheme {
                 Surface {
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {

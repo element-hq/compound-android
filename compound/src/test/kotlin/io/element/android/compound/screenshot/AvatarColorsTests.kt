@@ -2,6 +2,7 @@ package io.element.android.compound.screenshot
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.captureRoboImage
+import io.element.android.compound.screenshot.utils.screenshotFile
 import io.element.android.compound.theme.AvatarColorsDarkPreview
 import io.element.android.compound.theme.AvatarColorsLightPreview
 import org.junit.Test
@@ -15,10 +16,10 @@ class AvatarColorsTests {
     @Test
     @Config(sdk = [34], qualifiers = "xxhdpi")
     fun screenshots() {
-        captureRoboImage(filePath = "screenshots/Avatar Colors - Light.png") {
+        captureRoboImage(file = screenshotFile("Avatar Colors - Light.png")) {
             AvatarColorsLightPreview()
         }
-        captureRoboImage(filePath = "screenshots/Avatar Colors - Dark.png") {
+        captureRoboImage(file = screenshotFile("Avatar Colors - Dark.png")) {
             AvatarColorsDarkPreview()
         }
     }

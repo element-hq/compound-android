@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.captureRoboImage
+import io.element.android.compound.screenshot.utils.screenshotFile
 import io.element.android.compound.theme.ColorsSchemeDarkPreview
 import io.element.android.compound.theme.ColorsSchemeLightPreview
 import io.element.android.compound.theme.ElementTheme
@@ -26,7 +27,7 @@ class MaterialColorSchemeTests {
     @Test
     @Config(sdk = [34], qualifiers = "h2048dp-xhdpi")
     fun screenshots() {
-        captureRoboImage(filePath = "screenshots/Material3 Colors - Light.png") {
+        captureRoboImage(file = screenshotFile("Material3 Colors - Light.png")) {
             ElementTheme {
                 Surface {
                     Column(modifier = Modifier.padding(16.dp)) {
@@ -40,7 +41,7 @@ class MaterialColorSchemeTests {
                 }
             }
         }
-        captureRoboImage(filePath = "screenshots/Material3 Colors - Dark.png") {
+        captureRoboImage(file = screenshotFile("Material3 Colors - Dark.png")) {
             ElementTheme {
                 Surface {
                     Column(modifier = Modifier.padding(16.dp)) {

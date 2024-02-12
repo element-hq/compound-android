@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.captureRoboImage
+import io.element.android.compound.screenshot.utils.screenshotFile
 import io.element.android.compound.theme.ElementTheme
 import io.element.android.compound.theme.ForcedDarkElementTheme
 import org.junit.Test
@@ -25,7 +26,7 @@ class ForcedDarkElementThemeTests {
     @Test
     @Config(sdk = [34], qualifiers = "xxhdpi")
     fun screenshots() {
-        captureRoboImage(filePath = "screenshots/ForcedDarkElementTheme.png") {
+        captureRoboImage(file = screenshotFile("ForcedDarkElementTheme.png")) {
             ElementTheme {
                 Surface {
                     Column(

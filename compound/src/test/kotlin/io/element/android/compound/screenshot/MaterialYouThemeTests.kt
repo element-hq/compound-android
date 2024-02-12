@@ -1,16 +1,11 @@
 package io.element.android.compound.screenshot
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,9 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.captureRoboImage
 import io.element.android.compound.previews.ColorsSchemePreview
-import io.element.android.compound.theme.ColorsSchemeLightPreview
+import io.element.android.compound.screenshot.utils.screenshotFile
 import io.element.android.compound.theme.ElementTheme
-import io.element.android.compound.theme.ForcedDarkElementTheme
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
@@ -33,7 +27,7 @@ class MaterialYouThemeTests {
     @Test
     @Config(sdk = [34], qualifiers = "h2048dp-xhdpi")
     fun screenshots() {
-        captureRoboImage(filePath = "screenshots/MaterialYou Theme - Light.png") {
+        captureRoboImage(file = screenshotFile("MaterialYou Theme - Light.png")) {
             ElementTheme(dynamicColor = true) {
                 Surface {
                     Column(
@@ -48,7 +42,7 @@ class MaterialYouThemeTests {
                 }
             }
         }
-        captureRoboImage(filePath = "screenshots/MaterialYou Theme - Dark.png") {
+        captureRoboImage(file = screenshotFile("MaterialYou Theme - Dark.png")) {
             ElementTheme(dynamicColor = true, darkTheme = true) {
                 Surface {
                     Column(

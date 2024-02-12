@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.captureRoboImage
 import io.element.android.compound.previews.ColorListPreview
+import io.element.android.compound.screenshot.utils.screenshotFile
 import io.element.android.compound.theme.ElementTheme
 import kotlinx.collections.immutable.toImmutableMap
 import org.junit.Test
@@ -25,7 +26,7 @@ class SemanticColorsTests {
     @Config(sdk = [34], qualifiers = "h2048dp-xhdpi")
     @Test
     fun screenshots() {
-        captureRoboImage(filePath = "screenshots/Compound Semantic Colors - Light.png") {
+        captureRoboImage(file = screenshotFile("Compound Semantic Colors - Light.png")) {
             ElementTheme {
                 Surface {
                     Column(
@@ -43,7 +44,7 @@ class SemanticColorsTests {
             }
         }
 
-        captureRoboImage(filePath = "screenshots/Compound Semantic Colors - Dark.png") {
+        captureRoboImage(file = screenshotFile("Compound Semantic Colors - Dark.png")) {
             ElementTheme(darkTheme = true) {
                 Surface {
                     Column(
