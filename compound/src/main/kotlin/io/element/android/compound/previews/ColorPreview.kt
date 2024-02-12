@@ -36,11 +36,17 @@ import io.element.android.compound.utils.toHrf
 fun ColorPreview(
     backgroundColor: Color,
     foregroundColor: Color,
-    name: String, color: Color,
+    name: String,
+    color: Color,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
-        Text(text = name + " " + color.toHrf(), fontSize = 6.sp, color = foregroundColor)
+        Text(
+            modifier = Modifier.padding(horizontal = 10.dp),
+            text = name + " " + color.toHrf(),
+            fontSize = 6.sp,
+            color = foregroundColor
+        )
         val backgroundBrush = Brush.linearGradient(
             listOf(
                 backgroundColor,
@@ -54,6 +60,7 @@ fun ColorPreview(
                 Box(
                     modifier = Modifier
                         .padding(1.dp)
+                        .background(Color.White)
                         .background(color = color)
                         .height(10.dp)
                         .weight(1f)

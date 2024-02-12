@@ -1,0 +1,86 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  pull_request:
+  merge_group:
+  push:
+    branches: [ main ]
+
+# Enrich gradle.properties for CI/CD
+env:
+  GRADLE_OPTS: -Dorg.gradle.jvmargs="-Xmx3584m -Dfile.encoding=UTF-8 -XX:+HeapDumpOnOutOfMemoryError" -Dkotlin.incremental=false -XX:+UseParallelGC
+  CI_GRADLE_ARG_PROPERTIES: --stacktrace -PpreDexEnable=false --max-workers 4 --warn
+
+jobs:
+  tests:
+    name: Runs unit tests
+    runs-on: ubuntu-latest
+
+    # Allow all jobs on main. Just one per PR.
+    concurrency:
+      group: ${{ github.ref == 'refs/heads/main' && format('unit-tests-main-{0}', github.sha) || format('unit-tests-{0}', github.ref) }}
+      cancel-in-progress: true
+    steps:
+      # Increase swapfile size to prevent screenshot tests getting terminated
+      # https://github.com/actions/runner-images/discussions/7188#discussioncomment-6750749
+      - name: 💽 Increase swapfile size
+        run: |
+          sudo swapoff -a
+          sudo fallocate -l 8G /mnt/swapfile
+          sudo chmod 600 /mnt/swapfile
+          sudo mkswap /mnt/swapfile
+          sudo swapon /mnt/swapfile
+          sudo swapon --show
+      - name: ⏬ Checkout with LFS
+        uses: nschloe/action-cached-lfs-checkout@v1.2.2
+        with:
+          # Ensure we are building the branch and not the branch after being merged on main
+          # https://github.com/actions/checkout/issues/881
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.ref }}
+      - name: ☕️ Use JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
+      - name: Configure gradle
+        uses: gradle/gradle-build-action@v2.11.1
+        with:
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+
+      - name: ⚙️ Run unit tests
+        run: ./gradlew testDebugUnitTest $CI_GRADLE_ARG_PROPERTIES
+
+      - name: 📸 Run screenshot tests
+        run: ./gradlew :compound:verifyRoborazziDebug $CI_GRADLE_ARG_PROPERTIES
+
+      - name: 📈Generate kover report and verify coverage
+        run: ./gradlew :compound:koverHtmlReport :compound:koverXmlReport :compound:koverVerify $CI_GRADLE_ARG_PROPERTIES -Pci-build=true
+
+      - name: 🚫 Upload kover failed coverage reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kover-error-report
+          path: |
+            compound/build/reports/kover/verify.err
+
+      - name: ✅ Upload kover report (disabled)
+        if: always()
+        run: echo "This is now done only once a day, see nightlyReports.yml"
+
+      - name: 🚫 Upload test results on error
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tests-and-screenshot-tests-results
+          path: |
+            **/build/roborazzi/failures/
+            **/build/reports/tests/*UnitTest/
+
+      # https://github.com/codecov/codecov-action
+      - name: ☂️ Upload coverage reports to codecov
+        if: always()
+        uses: codecov/codecov-action@v3
+        # with:
+        #  files: build/reports/kover/xml/report.xml

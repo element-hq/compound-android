@@ -1,33 +1,49 @@
 [versions]
 # Project
-android_gradle_plugin = "8.1.4"
-kotlin = "1.9.20"
-ksp = "1.9.20-1.0.14"
+android_gradle_plugin = "8.2.2"
+kotlin = "1.9.22"
+ksp = "1.9.22-1.0.17"
+
+# AndroidX
+activity = "1.8.2"
 
 # Compose
-compose_bom = "2023.10.01"
-composecompiler = "1.5.4"
+compose_bom = "2024.02.00"
+composecompiler = "1.5.9"
 
 # Accompanist
-accompanist = "0.32.0"
+accompanist = "0.34.0"
 
 # Others
 showkase = "1.0.2"
-ui-tooling-preview-android = "1.5.4"
+ui-tooling-preview-android = "1.6.1"
+kover = "0.7.5"
+roborazzi = "1.9.0"
 
 [libraries]
 # Project
 kotlin_gradle_plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kover_gradle_plugin = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
 
 # AndroidX
 androidx_compose_bom = { module = "androidx.compose:compose-bom", version.ref = "compose_bom" }
-androidx_compose_material3 = "androidx.compose.material3:material3:1.2.0-alpha11"
+androidx_compose_material3 = "androidx.compose.material3:material3:1.2.0"
+androidx_activity_activity = { module = "androidx.activity:activity", version.ref = "activity" }
+androidx_compose_ui_test_junit = { module = "androidx.compose.ui:ui-test-junit4-android" }
 
 # Kotlin
 kotlinx_collections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.6"
 
 # Accompanist
 accompanist_systemui = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+
+# Test
+test_junit = "junit:junit:4.13.2"
+test_robolectric = "org.robolectric:robolectric:4.11.1"
+test_roborazzi = { module = "io.github.takahirom.roborazzi:roborazzi", version.ref = "roborazzi" }
+test_roborazzi_compose = { module = "io.github.takahirom.roborazzi:roborazzi-compose", version.ref = "roborazzi" }
+test_roborazzi_junit = { module = "io.github.takahirom.roborazzi:roborazzi-junit-rule", version.ref = "roborazzi" }
+test_espresso_core = "androidx.test.espresso:espresso-core:3.5.1"
 
 # Others
 showkase = { module = "com.airbnb.android:showkase", version.ref = "showkase" }
@@ -41,3 +57,5 @@ android_library = { id = "com.android.library", version.ref = "android_gradle_pl
 kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 maven_publish = { id = "com.vanniktech.maven.publish", version = "0.25.3" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
