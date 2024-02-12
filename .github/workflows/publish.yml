@@ -32,6 +32,6 @@ jobs:
           java-version: '17'
 
       - name: ⬆️ Publish to Sonatype
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v2.11.1
         with:
           arguments: publishAndReleaseToMavenCentral --no-configuration-cache
