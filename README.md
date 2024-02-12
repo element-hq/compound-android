@@ -19,3 +19,11 @@ All tokens can be accessed through the `ElementTheme` object, which contains the
 ## Adding new tokens
 
 All new tokens **should** come from Compound and added to the `compound.generated` package. To map the literal tokens to the semantic ones, you'll have to update both `compoundColorsLight` and `compoundColorsDark` in `CompoundColors.kt`.
+
+## Releasing
+
+To release a new version of the module, you'll have to:
+
+1. Update the version in `compound/build.gradle.kts`. 
+2. Create a `version-x.y.z` branch and create a PR.
+3. When the PR is merged, a new tag will be created and the module will automatically be published to Maven Central.
