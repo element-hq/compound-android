@@ -115,7 +115,7 @@ mavenPublishing {
         name = "Compound Android"
         description.set("Compound Tokens in a format Android projects can use.")
         inceptionYear.set("2023")
-        url.set("https://github.com/vector-im/compound-android/")
+        url.set("https://github.com/element-hq/compound-android/")
         licenses {
             license {
                 name.set("The Apache License, Version 2.0")
@@ -127,14 +127,14 @@ mavenPublishing {
             developer {
                 id.set("matrixdev")
                 name.set("matrixdev")
-                url.set("https://github.com/vector-im/")
+                url.set("https://github.com/element-hq/")
                 email.set("android@element.io")
             }
         }
         scm {
             url.set("https://github.com/username/mylibrary/")
-            connection.set("scm:git:git://github.com/username/mylibrary.git")
-            developerConnection.set("scm:git:ssh://git@github.com/username/mylibrary.git")
+            connection.set("scm:git:git://github.com/element-hq/compound-android.git")
+            developerConnection.set("scm:git:ssh://git@github.com/element-hq/compound-android.git")
         }
     }
 }
