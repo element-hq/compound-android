@@ -32,7 +32,7 @@ androidx_activity_activity = { module = "androidx.activity:activity", version.re
 androidx_compose_ui_test_junit = { module = "androidx.compose.ui:ui-test-junit4-android" }
 
 # Kotlin
-kotlinx_collections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.6"
+kotlinx_collections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7"
 
 # Accompanist
 accompanist_systemui = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
