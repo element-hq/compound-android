@@ -56,6 +56,6 @@ ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling
 android_library = { id = "com.android.library", version.ref = "android_gradle_plugin" }
 kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-maven_publish = { id = "com.vanniktech.maven.publish", version = "0.25.3" }
+maven_publish = { id = "com.vanniktech.maven.publish", version = "0.27.0" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
