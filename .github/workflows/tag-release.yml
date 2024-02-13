@@ -18,7 +18,7 @@ jobs:
           token: ${{ secrets.PAT }}
 
       - name: Get Version
-        uses: mad9000/actions-find-and-replace-string@3
+        uses: mad9000/actions-find-and-replace-string@5
         id: get-version
         with:
           source: ${{ github.head_ref }}
