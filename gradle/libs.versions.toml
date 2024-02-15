@@ -19,11 +19,13 @@ showkase = "1.0.2"
 ui-tooling-preview-android = "1.6.1"
 kover = "0.7.5"
 roborazzi = "1.9.0"
+dependencyAnalysis = "1.30.0"
 
 [libraries]
 # Project
 kotlin_gradle_plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kover_gradle_plugin = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
+autonomousapps_dependencyanalysis_plugin = { module = "com.autonomousapps:dependency-analysis-gradle-plugin", version.ref = "dependencyAnalysis" }
 
 # AndroidX
 androidx_compose_bom = { module = "androidx.compose:compose-bom", version.ref = "compose_bom" }
@@ -59,3 +61,5 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 maven_publish = { id = "com.vanniktech.maven.publish", version = "0.27.0" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
+dependencycheck = "org.owasp.dependencycheck:9.0.9"
+sonarqube = "org.sonarqube:4.4.1.3373"
