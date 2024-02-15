@@ -19,13 +19,11 @@ showkase = "1.0.2"
 ui-tooling-preview-android = "1.6.1"
 kover = "0.7.5"
 roborazzi = "1.9.0"
-dependencyAnalysis = "1.30.0"
 
 [libraries]
 # Project
 kotlin_gradle_plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kover_gradle_plugin = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
-autonomousapps_dependencyanalysis_plugin = { module = "com.autonomousapps:dependency-analysis-gradle-plugin", version.ref = "dependencyAnalysis" }
 
 # AndroidX
 androidx_compose_bom = { module = "androidx.compose:compose-bom", version.ref = "compose_bom" }
