@@ -1,7 +1,7 @@
 [versions]
 # Project
 android_gradle_plugin = "8.2.2"
-kotlin = "1.9.22"
+kotlin = "1.9.23"
 ksp = "1.9.22-1.0.17"
 
 # AndroidX
