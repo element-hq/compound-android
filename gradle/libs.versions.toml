@@ -16,7 +16,7 @@ accompanist = "0.34.0"
 
 # Others
 showkase = "1.0.2"
-ui-tooling-preview-android = "1.6.1"
+ui-tooling-preview-android = "1.6.5"
 kover = "0.7.5"
 roborazzi = "1.9.0"
 
