@@ -17,6 +17,9 @@
 package io.element.android.compound.theme
 
 import android.os.Build
+import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.LocalContentColor
@@ -31,9 +34,8 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
-import com.google.accompanist.systemuicontroller.SystemUiController
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import io.element.android.compound.tokens.compoundColorsDark
 import io.element.android.compound.tokens.compoundColorsLight
 import io.element.android.compound.tokens.compoundTypography
@@ -112,7 +114,6 @@ fun ElementTheme(
     typography: Typography = compoundTypography,
     content: @Composable () -> Unit,
 ) {
-    val systemUiController = rememberSystemUiController()
     val currentCompoundColor = remember(darkTheme) {
         compoundColors.copy()
     }.apply { updateColorsFrom(compoundColors) }
@@ -127,7 +128,7 @@ fun ElementTheme(
 
     val statusBarColorScheme = if (dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         val context = LocalContext.current
-        if (darkTheme) {
+        if (lightStatusBar) {
             dynamicDarkColorScheme(context)
         } else {
             dynamicLightColorScheme(context)
@@ -137,10 +138,21 @@ fun ElementTheme(
     }
 
     if (applySystemBarsUpdate) {
+        val activity = LocalContext.current as? ComponentActivity
         LaunchedEffect(statusBarColorScheme, darkTheme, lightStatusBar) {
-            systemUiController.applyTheme(
-                colorScheme = statusBarColorScheme,
-                darkTheme = darkTheme && !lightStatusBar
+            activity?.enableEdgeToEdge(
+                // For Status bar use the background color of the app
+                statusBarStyle = SystemBarStyle.auto(
+                    lightScrim = statusBarColorScheme.background.toArgb(),
+                    darkScrim = statusBarColorScheme.background.toArgb(),
+                    detectDarkMode = { !lightStatusBar }
+                ),
+                // For Navigation bar use a transparent color so the content can be seen through it
+                navigationBarStyle = if (darkTheme) {
+                    SystemBarStyle.dark(Color.Transparent.toArgb())
+                } else {
+                    SystemBarStyle.light(Color.Transparent.toArgb(), Color.Transparent.toArgb())
+                }
             )
         }
     }
@@ -154,18 +166,4 @@ fun ElementTheme(
             content = content
         )
     }
-}
-
-internal fun SystemUiController.applyTheme(
-    colorScheme: ColorScheme,
-    darkTheme: Boolean,
-) {
-    val useDarkIcons = !darkTheme
-    setStatusBarColor(
-        color = colorScheme.background
-    )
-    setSystemBarsColor(
-        color = Color.Transparent,
-        darkIcons = useDarkIcons
-    )
 }
