@@ -69,20 +69,19 @@ android {
     }
 
     dependencies {
+        implementation(libs.androidx.activity.activity)
         implementation(libs.androidx.compose.material3)
         implementation(platform(libs.androidx.compose.bom))
         implementation(libs.ui.tooling.preview.android)
         implementation(libs.kotlinx.collections)
 
+        // Showkase
         implementation(libs.showkase)
         ksp(libs.showkase.processor)
         kspTest(libs.showkase.processor)
 
-        implementation(libs.accompanist.systemui)
-
+        // Tests
         testImplementation(libs.test.junit)
-
-        testImplementation(libs.androidx.activity.activity)
         testImplementation(libs.androidx.compose.ui.test.junit)
         testImplementation(libs.test.robolectric)
         testImplementation(libs.test.roborazzi)

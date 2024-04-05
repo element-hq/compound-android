@@ -16,10 +16,15 @@
 
 package io.element.android.compound.theme
 
+import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalContext
 
 /**
  * Can be used to force a composable in dark theme.
@@ -30,12 +35,25 @@ fun ForcedDarkElementTheme(
     lightStatusBar: Boolean = false,
     content: @Composable () -> Unit,
 ) {
-    val systemUiController = rememberSystemUiController()
     val colorScheme = MaterialTheme.colorScheme
     val wasDarkTheme = !ElementTheme.colors.isLight
+    val activity = LocalContext.current as? ComponentActivity
     DisposableEffect(Unit) {
         onDispose {
-            systemUiController.applyTheme(colorScheme, wasDarkTheme)
+            activity?.enableEdgeToEdge(
+                statusBarStyle = SystemBarStyle.auto(
+                    lightScrim = colorScheme.background.toArgb(),
+                    darkScrim = colorScheme.background.toArgb(),
+                ),
+                navigationBarStyle = if (wasDarkTheme) {
+                    SystemBarStyle.dark(Color.Transparent.toArgb())
+                } else {
+                    SystemBarStyle.light(
+                        scrim = Color.Transparent.toArgb(),
+                        darkScrim = Color.Transparent.toArgb()
+                    )
+                }
+            )
         }
     }
     ElementTheme(darkTheme = true, lightStatusBar = lightStatusBar, content = content)
