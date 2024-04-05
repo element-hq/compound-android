@@ -11,9 +11,6 @@ activity = "1.8.2"
 compose_bom = "2024.04.00"
 composecompiler = "1.5.11"
 
-# Accompanist
-accompanist = "0.34.0"
-
 # Others
 showkase = "1.0.2"
 ui-tooling-preview-android = "1.6.5"
@@ -33,9 +30,6 @@ androidx_compose_ui_test_junit = { module = "androidx.compose.ui:ui-test-junit4-
 
 # Kotlin
 kotlinx_collections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7"
-
-# Accompanist
-accompanist_systemui = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
 
 # Test
 test_junit = "junit:junit:4.13.2"
