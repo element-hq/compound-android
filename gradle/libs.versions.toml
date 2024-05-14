@@ -8,14 +8,14 @@ ksp = "1.9.24-1.0.20"
 activity = "1.9.0"
 
 # Compose
-compose_bom = "2024.04.00"
+compose_bom = "2024.05.00"
 composecompiler = "1.5.11"
 
 # Others
 showkase = "1.0.2"
-ui-tooling-preview-android = "1.6.5"
-kover = "0.7.5"
-roborazzi = "1.9.0"
+ui-tooling-preview-android = "1.6.7"
+kover = "0.7.6"
+roborazzi = "1.15.0"
 
 [libraries]
 # Project
@@ -50,8 +50,8 @@ ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling
 android_library = { id = "com.android.library", version.ref = "android_gradle_plugin" }
 kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-maven_publish = { id = "com.vanniktech.maven.publish", version = "0.27.0" }
+maven_publish = { id = "com.vanniktech.maven.publish", version = "0.28.0" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
-dependencycheck = "org.owasp.dependencycheck:9.0.9"
-sonarqube = "org.sonarqube:4.4.1.3373"
+dependencycheck = "org.owasp.dependencycheck:9.1.0"
+sonarqube = "org.sonarqube:5.0.0.4638"
