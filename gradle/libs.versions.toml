@@ -54,4 +54,4 @@ maven_publish = { id = "com.vanniktech.maven.publish", version = "0.28.0" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
 dependencycheck = "org.owasp.dependencycheck:9.1.0"
-sonarqube = "org.sonarqube:4.4.1.3373"
+sonarqube = "org.sonarqube:5.0.0.4638"
