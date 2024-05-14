@@ -5,7 +5,7 @@ kotlin = "1.9.23"
 ksp = "1.9.23-1.0.19"
 
 # AndroidX
-activity = "1.8.2"
+activity = "1.9.0"
 
 # Compose
 compose_bom = "2024.04.00"
@@ -14,7 +14,7 @@ composecompiler = "1.5.11"
 # Others
 showkase = "1.0.2"
 ui-tooling-preview-android = "1.6.5"
-kover = "0.7.5"
+kover = "0.7.6"
 roborazzi = "1.15.0"
 
 [libraries]
