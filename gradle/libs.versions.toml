@@ -15,7 +15,7 @@ composecompiler = "1.5.11"
 showkase = "1.0.2"
 ui-tooling-preview-android = "1.6.7"
 kover = "0.7.6"
-roborazzi = "1.15.0"
+roborazzi = "1.20.0"
 
 [libraries]
 # Project
