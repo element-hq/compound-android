@@ -97,7 +97,7 @@ fun SemanticColors.toMaterialColorScheme(): ColorScheme {
     }
 }
 
-@Preview
+@Preview(heightDp = 1200)
 @Composable
 internal fun ColorsSchemeLightPreview() = ElementTheme {
     ColorsSchemePreview(
@@ -107,7 +107,7 @@ internal fun ColorsSchemeLightPreview() = ElementTheme {
     )
 }
 
-@Preview
+@Preview(heightDp = 1200)
 @Composable
 internal fun ColorsSchemeDarkPreview() = ElementTheme(darkTheme = true) {
     ColorsSchemePreview(
