@@ -24,15 +24,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import io.element.android.compound.annotations.CoreColorToken
 import io.element.android.compound.previews.ColorsSchemePreview
-import io.element.android.compound.tokens.compoundColorsDark
-import io.element.android.compound.tokens.compoundColorsLight
 import io.element.android.compound.tokens.generated.SemanticColors
 import io.element.android.compound.tokens.generated.internal.DarkColorTokens
 import io.element.android.compound.tokens.generated.internal.LightColorTokens
-
-val materialColorSchemeLight = compoundColorsLight.toMaterialColorScheme()
-
-val materialColorSchemeDark = compoundColorsDark.toMaterialColorScheme()
 
 @OptIn(CoreColorToken::class)
 fun SemanticColors.toMaterialColorScheme(): ColorScheme {
@@ -119,6 +113,6 @@ internal fun ColorsSchemeDarkPreview() = ElementTheme(darkTheme = true) {
     ColorsSchemePreview(
         Color.White,
         Color.Black,
-        materialColorSchemeDark,
+        ElementTheme.materialColors,
     )
 }
