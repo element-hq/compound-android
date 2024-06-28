@@ -8,7 +8,7 @@ ksp = "1.9.23-1.0.19"
 activity = "1.9.0"
 
 # Compose
-compose_bom = "2024.05.00"
+compose_bom = "2024.06.00"
 composecompiler = "1.5.11"
 
 # Others
