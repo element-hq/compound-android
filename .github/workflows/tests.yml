@@ -48,11 +48,8 @@ jobs:
         with:
           cache-read-only: ${{ github.ref != 'refs/heads/main' }}
 
-      - name: ⚙️ Run unit tests
+      - name: ⚙️ Run unit tests and screenshot tests
         run: ./gradlew testDebugUnitTest $CI_GRADLE_ARG_PROPERTIES
-
-      - name: 📸 Run screenshot tests
-        run: ./gradlew :compound:verifyRoborazziDebug $CI_GRADLE_ARG_PROPERTIES
 
       - name: 📈Generate kover report and verify coverage
         run: ./gradlew :compound:koverHtmlReport :compound:koverXmlReport :compound:koverVerify $CI_GRADLE_ARG_PROPERTIES -Pci-build=true
