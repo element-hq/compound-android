@@ -113,8 +113,8 @@ fun ElementTheme(
     dynamicColor: Boolean = false, /* true to enable MaterialYou */
     compoundLight: SemanticColors = compoundColorsLight,
     compoundDark: SemanticColors = compoundColorsDark,
-    materialColorsLight: ColorScheme = compoundColorsLight.toMaterialColorScheme(),
-    materialColorsDark: ColorScheme = compoundColorsDark.toMaterialColorScheme(),
+    materialColorsLight: ColorScheme = compoundLight.toMaterialColorScheme(),
+    materialColorsDark: ColorScheme = compoundDark.toMaterialColorScheme(),
     typography: Typography = compoundTypography,
     content: @Composable () -> Unit,
 ) {
