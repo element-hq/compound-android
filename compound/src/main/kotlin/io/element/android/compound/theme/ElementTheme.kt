@@ -114,10 +114,6 @@ fun ElementTheme(
     typography: Typography = compoundTypography,
     content: @Composable () -> Unit,
 ) {
-    val currentCompoundColor = remember(darkTheme) {
-        compoundColors.copy()
-    }.apply { updateColorsFrom(compoundColors) }
-
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
@@ -157,7 +153,7 @@ fun ElementTheme(
         }
     }
     CompositionLocalProvider(
-        LocalCompoundColors provides currentCompoundColor,
+        LocalCompoundColors provides compoundColors,
         LocalContentColor provides colorScheme.onSurface,
     ) {
         MaterialTheme(
