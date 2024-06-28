@@ -118,8 +118,9 @@ fun ElementTheme(
     typography: Typography = compoundTypography,
     content: @Composable () -> Unit,
 ) {
-    val currentCompoundColor = remember(darkTheme) {
-        if (darkTheme) compoundDark else compoundLight
+    val currentCompoundColor = when {
+        darkTheme -> compoundDark
+        else -> compoundLight
     }
 
     val colorScheme = when {
