@@ -22,7 +22,7 @@ import io.element.android.compound.tokens.generated.internal.DarkColorTokens
 import io.element.android.compound.tokens.generated.internal.LightColorTokens
 
 @OptIn(CoreColorToken::class)
-internal val compoundColorsLight = SemanticColors(
+val compoundColorsLight = SemanticColors(
     textPrimary = LightColorTokens.colorGray1400,
     textSecondary = LightColorTokens.colorGray900,
     textPlaceholder = LightColorTokens.colorGray800,
@@ -94,7 +94,7 @@ internal val compoundColorsLight = SemanticColors(
 )
 
 @OptIn(CoreColorToken::class)
-internal val compoundColorsDark = SemanticColors(
+val compoundColorsDark = SemanticColors(
     textPrimary = DarkColorTokens.colorGray1400,
     textSecondary = DarkColorTokens.colorGray900,
     textPlaceholder = DarkColorTokens.colorGray800,

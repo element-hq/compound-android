@@ -27,7 +27,7 @@ import io.element.android.compound.tokens.generated.internal.DarkColorTokens
 import io.element.android.compound.tokens.generated.internal.LightColorTokens
 
 @OptIn(CoreColorToken::class)
-internal val materialColorSchemeLight = lightColorScheme(
+val materialColorSchemeLight = lightColorScheme(
     primary = LightColorTokens.colorGray1400,
     onPrimary = LightColorTokens.colorThemeBg,
     primaryContainer = LightColorTokens.colorThemeBg,
@@ -60,7 +60,7 @@ internal val materialColorSchemeLight = lightColorScheme(
 )
 
 @OptIn(CoreColorToken::class)
-internal val materialColorSchemeDark = darkColorScheme(
+val materialColorSchemeDark = darkColorScheme(
     primary = DarkColorTokens.colorGray1400,
     onPrimary = DarkColorTokens.colorThemeBg,
     primaryContainer = DarkColorTokens.colorThemeBg,
