@@ -25,6 +25,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import io.element.android.compound.annotations.CoreColorToken
 import io.element.android.compound.previews.ColorsSchemePreview
 import io.element.android.compound.tokens.generated.SemanticColors
+import io.element.android.compound.tokens.generated.compoundColorsHcDark
+import io.element.android.compound.tokens.generated.compoundColorsHcLight
 import io.element.android.compound.tokens.generated.internal.DarkColorTokens
 import io.element.android.compound.tokens.generated.internal.LightColorTokens
 
@@ -109,7 +111,34 @@ internal fun ColorsSchemeLightPreview() = ElementTheme {
 
 @Preview(heightDp = 1200)
 @Composable
-internal fun ColorsSchemeDarkPreview() = ElementTheme(darkTheme = true) {
+internal fun ColorsSchemeLightHcPreview() = ElementTheme(
+    compoundLight = compoundColorsHcLight,
+) {
+    ColorsSchemePreview(
+        Color.Black,
+        Color.White,
+        ElementTheme.materialColors,
+    )
+}
+
+@Preview(heightDp = 1200)
+@Composable
+internal fun ColorsSchemeDarkPreview() = ElementTheme(
+    darkTheme = true,
+) {
+    ColorsSchemePreview(
+        Color.White,
+        Color.Black,
+        ElementTheme.materialColors,
+    )
+}
+
+@Preview(heightDp = 1200)
+@Composable
+internal fun ColorsSchemeDarkHcPreview() = ElementTheme(
+    darkTheme = true,
+    compoundDark = compoundColorsHcDark,
+) {
     ColorsSchemePreview(
         Color.White,
         Color.Black,

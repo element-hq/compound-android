@@ -13,9 +13,12 @@ import androidx.compose.ui.unit.sp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.captureRoboImage
 import io.element.android.compound.screenshot.utils.screenshotFile
+import io.element.android.compound.theme.ColorsSchemeDarkHcPreview
 import io.element.android.compound.theme.ColorsSchemeDarkPreview
+import io.element.android.compound.theme.ColorsSchemeLightHcPreview
 import io.element.android.compound.theme.ColorsSchemeLightPreview
 import io.element.android.compound.theme.ElementTheme
+import io.element.android.compound.tokens.generated.compoundColorsHcLight
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
@@ -41,6 +44,20 @@ class MaterialColorSchemeTests {
                 }
             }
         }
+        captureRoboImage(file = screenshotFile("Material3 Colors - Light HC.png")) {
+            ElementTheme {
+                Surface {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = "M3 Light HC colors",
+                            style = TextStyle.Default.copy(fontSize = 18.sp),
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        ColorsSchemeLightHcPreview()
+                    }
+                }
+            }
+        }
         captureRoboImage(file = screenshotFile("Material3 Colors - Dark.png")) {
             ElementTheme {
                 Surface {
@@ -51,6 +68,20 @@ class MaterialColorSchemeTests {
                         )
                         Spacer(modifier = Modifier.height(12.dp))
                         ColorsSchemeDarkPreview()
+                    }
+                }
+            }
+        }
+        captureRoboImage(file = screenshotFile("Material3 Colors - Dark HC.png")) {
+            ElementTheme {
+                Surface {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = "M3 Dark HC colors",
+                            style = TextStyle.Default.copy(fontSize = 18.sp),
+                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        ColorsSchemeDarkHcPreview()
                     }
                 }
             }
