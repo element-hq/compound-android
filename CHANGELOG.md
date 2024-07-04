@@ -1,5 +1,10 @@
 # Changelog
 
+# v0.0.7:
+
+- import Semantics color from compound token, and new color: `iconAccentPrimary`, and make them public so that they can be copied to override colors.
+- New icons: `ExtensionsSolid`, `MarkAsRead`, `MarkAsUnread`, `Minus`
+
 # v0.0.6:
 
 - Remove Accompanist SystemUiController library.
