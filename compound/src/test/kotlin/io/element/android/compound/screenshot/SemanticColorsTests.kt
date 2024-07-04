@@ -67,6 +67,9 @@ class SemanticColorsTests {
     private fun getSemanticColors(): List<Pair<String, Color>> {
         return with(ElementTheme.colors) {
             listOf(
+                "bgAccentHovered" to bgAccentHovered,
+                "bgAccentPressed" to bgAccentPressed,
+                "bgAccentRest" to bgAccentRest,
                 "bgActionPrimaryDisabled" to bgActionPrimaryDisabled,
                 "bgActionPrimaryHovered" to bgActionPrimaryHovered,
                 "bgActionPrimaryPressed" to bgActionPrimaryPressed,
@@ -80,6 +83,12 @@ class SemanticColorsTests {
                 "bgCriticalPrimary" to bgCriticalPrimary,
                 "bgCriticalSubtle" to bgCriticalSubtle,
                 "bgCriticalSubtleHovered" to bgCriticalSubtleHovered,
+                "bgDecorative1" to bgDecorative1,
+                "bgDecorative2" to bgDecorative2,
+                "bgDecorative3" to bgDecorative3,
+                "bgDecorative4" to bgDecorative4,
+                "bgDecorative5" to bgDecorative5,
+                "bgDecorative6" to bgDecorative6,
                 "bgInfoSubtle" to bgInfoSubtle,
                 "bgSubtlePrimary" to bgSubtlePrimary,
                 "bgSubtleSecondary" to bgSubtleSecondary,
@@ -94,6 +103,7 @@ class SemanticColorsTests {
                 "borderInteractivePrimary" to borderInteractivePrimary,
                 "borderInteractiveSecondary" to borderInteractiveSecondary,
                 "borderSuccessSubtle" to borderSuccessSubtle,
+                "iconAccentPrimary" to iconAccentPrimary,
                 "iconAccentTertiary" to iconAccentTertiary,
                 "iconCriticalPrimary" to iconCriticalPrimary,
                 "iconDisabled" to iconDisabled,
@@ -111,6 +121,12 @@ class SemanticColorsTests {
                 "textActionAccent" to textActionAccent,
                 "textActionPrimary" to textActionPrimary,
                 "textCriticalPrimary" to textCriticalPrimary,
+                "textDecorative1" to textDecorative1,
+                "textDecorative2" to textDecorative2,
+                "textDecorative3" to textDecorative3,
+                "textDecorative4" to textDecorative4,
+                "textDecorative5" to textDecorative5,
+                "textDecorative6" to textDecorative6,
                 "textDisabled" to textDisabled,
                 "textInfoPrimary" to textInfoPrimary,
                 "textLinkExternal" to textLinkExternal,
@@ -119,6 +135,7 @@ class SemanticColorsTests {
                 "textPrimary" to textPrimary,
                 "textSecondary" to textSecondary,
                 "textSuccessPrimary" to textSuccessPrimary,
+                "isLight" to if (isLight) Color.White else Color.Black,
             )
         }
     }
