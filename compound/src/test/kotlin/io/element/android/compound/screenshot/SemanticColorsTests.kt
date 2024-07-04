@@ -14,6 +14,7 @@ import com.github.takahirom.roborazzi.captureRoboImage
 import io.element.android.compound.previews.ColorListPreview
 import io.element.android.compound.screenshot.utils.screenshotFile
 import io.element.android.compound.theme.ElementTheme
+import io.element.android.compound.tokens.generated.compoundColorsHcDark
 import kotlinx.collections.immutable.toImmutableMap
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -44,6 +45,26 @@ class SemanticColorsTests {
             }
         }
 
+        captureRoboImage(file = screenshotFile("Compound Semantic Colors - Light HC.png")) {
+            ElementTheme(
+                compoundDark = compoundColorsHcDark,
+            ) {
+                Surface {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        Text("Compound Semantic Colors - Light HC")
+                        ColorListPreview(
+                            backgroundColor = Color.White,
+                            foregroundColor = Color.Black,
+                            colors = getSemanticColors().toMap().toImmutableMap()
+                        )
+                    }
+                }
+            }
+        }
+
         captureRoboImage(file = screenshotFile("Compound Semantic Colors - Dark.png")) {
             ElementTheme(darkTheme = true) {
                 Surface {
@@ -52,6 +73,27 @@ class SemanticColorsTests {
                         verticalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
                         Text("Compound Semantic Colors - Dark")
+                        ColorListPreview(
+                            backgroundColor = Color.White,
+                            foregroundColor = Color.Black,
+                            colors = getSemanticColors().toMap().toImmutableMap()
+                        )
+                    }
+                }
+            }
+        }
+
+        captureRoboImage(file = screenshotFile("Compound Semantic Colors - Dark HC.png")) {
+            ElementTheme(
+                darkTheme = true,
+                compoundDark = compoundColorsHcDark,
+            ) {
+                Surface {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        Text("Compound Semantic Colors - Dark HC")
                         ColorListPreview(
                             backgroundColor = Color.White,
                             foregroundColor = Color.Black,
