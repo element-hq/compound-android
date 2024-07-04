@@ -31,16 +31,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.ReadOnlyComposable
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
-import io.element.android.compound.tokens.compoundColorsDark
-import io.element.android.compound.tokens.compoundColorsLight
 import io.element.android.compound.tokens.compoundTypography
 import io.element.android.compound.tokens.generated.SemanticColors
 import io.element.android.compound.tokens.generated.TypographyTokens
+import io.element.android.compound.tokens.generated.compoundColorsDark
+import io.element.android.compound.tokens.generated.compoundColorsLight
 
 /**
  * Inspired from https://medium.com/@lucasyujideveloper/54cbcbde1ace
