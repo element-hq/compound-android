@@ -15,7 +15,8 @@ import io.element.android.compound.previews.ColorListPreview
 import io.element.android.compound.screenshot.utils.screenshotFile
 import io.element.android.compound.theme.ElementTheme
 import io.element.android.compound.tokens.generated.compoundColorsHcDark
-import kotlinx.collections.immutable.toImmutableMap
+import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.persistentMapOf
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
@@ -38,7 +39,7 @@ class SemanticColorsTests {
                         ColorListPreview(
                             backgroundColor = Color.White,
                             foregroundColor = Color.Black,
-                            colors = getSemanticColors().toMap().toImmutableMap()
+                            colors = getSemanticColors(),
                         )
                     }
                 }
@@ -58,7 +59,7 @@ class SemanticColorsTests {
                         ColorListPreview(
                             backgroundColor = Color.White,
                             foregroundColor = Color.Black,
-                            colors = getSemanticColors().toMap().toImmutableMap()
+                            colors = getSemanticColors()
                         )
                     }
                 }
@@ -76,7 +77,7 @@ class SemanticColorsTests {
                         ColorListPreview(
                             backgroundColor = Color.White,
                             foregroundColor = Color.Black,
-                            colors = getSemanticColors().toMap().toImmutableMap()
+                            colors = getSemanticColors(),
                         )
                     }
                 }
@@ -97,7 +98,7 @@ class SemanticColorsTests {
                         ColorListPreview(
                             backgroundColor = Color.White,
                             foregroundColor = Color.Black,
-                            colors = getSemanticColors().toMap().toImmutableMap()
+                            colors = getSemanticColors()
                         )
                     }
                 }
@@ -106,9 +107,9 @@ class SemanticColorsTests {
     }
 
     @Composable
-    private fun getSemanticColors(): List<Pair<String, Color>> {
+    private fun getSemanticColors(): ImmutableMap<String, Color> {
         return with(ElementTheme.colors) {
-            listOf(
+            persistentMapOf(
                 "bgAccentHovered" to bgAccentHovered,
                 "bgAccentPressed" to bgAccentPressed,
                 "bgAccentRest" to bgAccentRest,
