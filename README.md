@@ -6,6 +6,16 @@
 
 This module contains the theme tokens for the application, including those auto-generated from [Compound](https://github.com/vector-im/compound-design-tokens) and its mappings.
 
+## Importing tokens
+
+To update the token from [Compound](https://github.com/vector-im/compound-design-tokens), you need to set the tag in the file [import_tokens.sh](./scripts/import_tokens.sh) and run the script.
+
+It's also possible to provide the tag (or a branch) as a parameter to the script:
+
+```bash 
+./scripts/import_tokens.sh -t <tag>
+``` 
+
 ## Usage
 
 The module contains public tokens and color schemes that are later used in `MaterialTheme` and added to `ElementTheme` for use in the application.
