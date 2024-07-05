@@ -22,7 +22,7 @@ if [ -d tmp ]; then
 fi
 mkdir tmp
 pushd tmp
-git clone --depth 1 --branch $TAG https://github.com/vector-im/compound-design-tokens
+git clone --depth 1 --branch $TAG https://github.com/element-hq/compound-design-tokens
 
 echo "Copying files from tokens repository..."
 cp -R compound-design-tokens/assets/android/res/drawable ../compound/src/main/res/
