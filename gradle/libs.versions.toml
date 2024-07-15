@@ -9,7 +9,7 @@ activity = "1.9.0"
 
 # Compose
 compose_bom = "2024.06.00"
-composecompiler = "1.5.11"
+composecompiler = "1.5.14"
 
 # Others
 showkase = "1.0.3"
