@@ -1,15 +1,14 @@
 [versions]
 # Project
 android_gradle_plugin = "8.5.1"
-kotlin = "1.9.24"
-ksp = "1.9.24-1.0.20"
+kotlin = "2.0.0"
+ksp = "2.0.0-1.0.23"
 
 # AndroidX
 activity = "1.9.0"
 
 # Compose
 compose_bom = "2024.06.00"
-composecompiler = "1.5.14"
 
 # Others
 showkase = "1.0.3"
@@ -49,6 +48,7 @@ ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling
 [plugins]
 android_library = { id = "com.android.library", version.ref = "android_gradle_plugin" }
 kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose_compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 maven_publish = { id = "com.vanniktech.maven.publish", version = "0.29.0" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
