@@ -1,15 +1,15 @@
 [versions]
 # Project
 android_gradle_plugin = "8.5.1"
-kotlin = "1.9.23"
-ksp = "1.9.23-1.0.19"
+kotlin = "1.9.24"
+ksp = "1.9.24-1.0.20"
 
 # AndroidX
 activity = "1.9.0"
 
 # Compose
 compose_bom = "2024.06.00"
-composecompiler = "1.5.11"
+composecompiler = "1.5.14"
 
 # Others
 showkase = "1.0.3"
