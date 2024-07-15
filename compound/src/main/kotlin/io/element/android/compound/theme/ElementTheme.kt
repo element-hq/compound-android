@@ -31,16 +31,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.ReadOnlyComposable
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
-import io.element.android.compound.tokens.compoundColorsDark
-import io.element.android.compound.tokens.compoundColorsLight
 import io.element.android.compound.tokens.compoundTypography
 import io.element.android.compound.tokens.generated.SemanticColors
 import io.element.android.compound.tokens.generated.TypographyTokens
+import io.element.android.compound.tokens.generated.compoundColorsDark
+import io.element.android.compound.tokens.generated.compoundColorsLight
 
 /**
  * Inspired from https://medium.com/@lucasyujideveloper/54cbcbde1ace
@@ -98,8 +97,10 @@ internal val LocalCompoundColors = staticCompositionLocalOf { compoundColorsLigh
  * This is specially useful when you want to apply an alternate theme to a part of the app but don't want it to affect the system bars.
  * @param lightStatusBar whether to use a light status bar color scheme or not. By default, it's the opposite of [darkTheme].
  * @param dynamicColor whether to enable MaterialYou or not. It's `false` by default.
- * @param compoundColors the [SemanticColors] to use. By default it'll automatically use the light or dark theme colors based on the system theme.
- * @param materialColors the Material 3 [ColorScheme] to use. It'll use either [materialColorSchemeLight] or [materialColorSchemeDark] by default.
+ * @param compoundLight the [SemanticColors] to use in light theme.
+ * @param compoundDark the [SemanticColors] to use in dark theme.
+ * @param materialColorsLight the Material 3 [ColorScheme] to use in light theme.
+ * @param materialColorsDark the Material 3 [ColorScheme] to use in dark theme.
  * @param typography the Material 3 [Typography] tokens to use. It'll use [compoundTypography] by default.
  * @param content the content to apply the theme to.
  */
@@ -109,21 +110,25 @@ fun ElementTheme(
     applySystemBarsUpdate: Boolean = true,
     lightStatusBar: Boolean = !darkTheme,
     dynamicColor: Boolean = false, /* true to enable MaterialYou */
-    compoundColors: SemanticColors = if (darkTheme) compoundColorsDark else compoundColorsLight,
-    materialColors: ColorScheme = if (darkTheme) materialColorSchemeDark else materialColorSchemeLight,
+    compoundLight: SemanticColors = compoundColorsLight,
+    compoundDark: SemanticColors = compoundColorsDark,
+    materialColorsLight: ColorScheme = compoundLight.toMaterialColorScheme(),
+    materialColorsDark: ColorScheme = compoundDark.toMaterialColorScheme(),
     typography: Typography = compoundTypography,
     content: @Composable () -> Unit,
 ) {
-    val currentCompoundColor = remember(darkTheme) {
-        compoundColors.copy()
-    }.apply { updateColorsFrom(compoundColors) }
+    val currentCompoundColor = when {
+        darkTheme -> compoundDark
+        else -> compoundLight
+    }
 
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-        else -> materialColors
+        darkTheme -> materialColorsDark
+        else -> materialColorsLight
     }
 
     val statusBarColorScheme = if (dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

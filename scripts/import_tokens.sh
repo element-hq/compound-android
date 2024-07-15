@@ -27,8 +27,6 @@ git clone --branch $BRANCH https://github.com/vector-im/compound-design-tokens
 echo "Copying files from tokens repository..."
 cp -R compound-design-tokens/assets/android/res/drawable ../compound/src/main/res/
 cp -R compound-design-tokens/assets/android/src/* ../compound/src/main/kotlin/io/element/android/compound/tokens/generated/
-echo "Removing unnecessary files..."
-rm ../compound/src/main/kotlin/io/element/android/compound/tokens/generated/internal/*Hc*.kt
 popd
 
 echo "Removing temporary files..."

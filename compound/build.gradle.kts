@@ -23,6 +23,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kover)
     alias(libs.plugins.roborazzi)
+    alias(libs.plugins.dependencycheck)
 }
 
 android {
@@ -95,11 +96,16 @@ kotlin {
     jvmToolchain(17)
 }
 
+configure<org.owasp.dependencycheck.gradle.extension.DependencyCheckExtension> {
+    (properties["NVD_API_KEY"] as? String)?.let { nvd.apiKey = it }
+    nvd.delay = 1600
+}
+
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.S01)
     signAllPublications()
 
-    coordinates("io.element.android", "compound-android", "0.0.6")
+    coordinates("io.element.android", "compound-android", "0.0.7")
     if (!providers.gradleProperty("mavenCentralUsername").isPresent) {
         println("No maven central provider")
     }

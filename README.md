@@ -18,7 +18,21 @@ All tokens can be accessed through the `ElementTheme` object, which contains the
 
 ## Adding new tokens
 
-All new tokens **should** come from Compound and added to the `compound.generated` package. To map the literal tokens to the semantic ones, you'll have to update both `compoundColorsLight` and `compoundColorsDark` in `CompoundColors.kt`.
+All new tokens **should** come from Compound and added to the `compound.generated` package. Same thing for the value of `compoundColorsLight`, `compoundColorsDark`, `compoundColorsHcLight` and `compoundColorsHcDark`.
+
+## Unit tests
+
+To run Roborazzi test, run:
+
+```bash
+./gradlew :compound:verifyRoborazziDebug
+```
+
+To record the screenshot, run:
+
+```bash
+./gradlew :compound:recordRoborazziDebug
+```
 
 ## Releasing
 

@@ -1,6 +1,6 @@
 [versions]
 # Project
-android_gradle_plugin = "8.4.0"
+android_gradle_plugin = "8.5.1"
 kotlin = "1.9.24"
 ksp = "1.9.24-1.0.20"
 
@@ -8,14 +8,14 @@ ksp = "1.9.24-1.0.20"
 activity = "1.9.0"
 
 # Compose
-compose_bom = "2024.05.00"
+compose_bom = "2024.06.00"
 composecompiler = "1.5.11"
 
 # Others
-showkase = "1.0.2"
-ui-tooling-preview-android = "1.6.7"
+showkase = "1.0.3"
+ui-tooling-preview-android = "1.6.8"
 kover = "0.7.6"
-roborazzi = "1.15.0"
+roborazzi = "1.22.2"
 
 [libraries]
 # Project
@@ -33,11 +33,11 @@ kotlinx_collections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7
 
 # Test
 test_junit = "junit:junit:4.13.2"
-test_robolectric = "org.robolectric:robolectric:4.12.1"
+test_robolectric = "org.robolectric:robolectric:4.13"
 test_roborazzi = { module = "io.github.takahirom.roborazzi:roborazzi", version.ref = "roborazzi" }
 test_roborazzi_compose = { module = "io.github.takahirom.roborazzi:roborazzi-compose", version.ref = "roborazzi" }
 test_roborazzi_junit = { module = "io.github.takahirom.roborazzi:roborazzi-junit-rule", version.ref = "roborazzi" }
-test_espresso_core = "androidx.test.espresso:espresso-core:3.5.1"
+test_espresso_core = "androidx.test.espresso:espresso-core:3.6.1"
 
 # Others
 showkase = { module = "com.airbnb.android:showkase", version.ref = "showkase" }
@@ -50,8 +50,8 @@ ui-tooling-preview-android = { group = "androidx.compose.ui", name = "ui-tooling
 android_library = { id = "com.android.library", version.ref = "android_gradle_plugin" }
 kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-maven_publish = { id = "com.vanniktech.maven.publish", version = "0.28.0" }
+maven_publish = { id = "com.vanniktech.maven.publish", version = "0.29.0" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
-dependencycheck = "org.owasp.dependencycheck:9.1.0"
-sonarqube = "org.sonarqube:5.0.0.4638"
+dependencycheck = "org.owasp.dependencycheck:10.0.2"
+sonarqube = "org.sonarqube:5.1.0.4882"
