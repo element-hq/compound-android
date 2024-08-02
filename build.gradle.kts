@@ -20,7 +20,7 @@ plugins {
 sonar {
     properties {
         property("sonar.projectName", "compound-android")
-        property("sonar.projectKey", "element-hq_compound-android")
+        property("sonar.projectKey", "compound-android")
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.projectVersion", "1.0")
         property("sonar.sourceEncoding", "UTF-8")
@@ -28,7 +28,7 @@ sonar {
         property("sonar.links.ci", "https://github.com/element-hq/compound-android/actions")
         property("sonar.links.scm", "https://github.com/element-hq/compound-android/")
         property("sonar.links.issue", "https://github.com/element-hq/compound-android/issues")
-        property("sonar.organization", "new_vector_ltd_organization")
+        property("sonar.organization", "element-hq")
         property("sonar.login", if (project.hasProperty("SONAR_LOGIN")) project.property("SONAR_LOGIN")!! else "invalid")
 
         // exclude source code from analyses separated by a colon (:)
