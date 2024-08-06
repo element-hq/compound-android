@@ -14,7 +14,7 @@ compose_bom = "2024.06.00"
 showkase = "1.0.3"
 ui-tooling-preview-android = "1.6.8"
 kover = "0.7.6"
-roborazzi = "1.22.2"
+roborazzi = "1.26.0"
 
 [libraries]
 # Project
