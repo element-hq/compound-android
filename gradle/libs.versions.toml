@@ -1,6 +1,6 @@
 [versions]
 # Project
-android_gradle_plugin = "8.5.1"
+android_gradle_plugin = "8.5.2"
 kotlin = "2.0.0"
 ksp = "2.0.0-1.0.23"
 
