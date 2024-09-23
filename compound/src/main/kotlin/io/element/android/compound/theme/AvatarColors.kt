@@ -13,9 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.element.android.compound.annotations.CoreColorToken
-import io.element.android.compound.tokens.generated.internal.DarkColorTokens
-import io.element.android.compound.tokens.generated.internal.LightColorTokens
 
 /**
  * Data class to hold avatar colors.
@@ -28,42 +25,25 @@ data class AvatarColors(
 )
 
 /**
- * Avatar colors are not yet part of SemanticColors, so create list here.
- * LightColorTokens is internal to the module.
+ * Avatar colors using semantic tokens.
  */
-@OptIn(CoreColorToken::class)
-val avatarColorsLight = listOf(
-    AvatarColors(background = LightColorTokens.colorBlue300, foreground = LightColorTokens.colorBlue1200),
-    AvatarColors(background = LightColorTokens.colorFuchsia300, foreground = LightColorTokens.colorFuchsia1200),
-    AvatarColors(background = LightColorTokens.colorGreen300, foreground = LightColorTokens.colorGreen1200),
-    AvatarColors(background = LightColorTokens.colorPink300, foreground = LightColorTokens.colorPink1200),
-    AvatarColors(background = LightColorTokens.colorOrange300, foreground = LightColorTokens.colorOrange1200),
-    AvatarColors(background = LightColorTokens.colorCyan300, foreground = LightColorTokens.colorCyan1200),
-    AvatarColors(background = LightColorTokens.colorPurple300, foreground = LightColorTokens.colorPurple1200),
-    AvatarColors(background = LightColorTokens.colorLime300, foreground = LightColorTokens.colorLime1200),
-)
-
-/**
- * Avatar colors are not yet part of SemanticColors, so create list here.
- * DarkColorTokens is internal to the module.
- */
-@OptIn(CoreColorToken::class)
-val avatarColorsDark = listOf(
-    AvatarColors(background = DarkColorTokens.colorBlue300, foreground = DarkColorTokens.colorBlue1200),
-    AvatarColors(background = DarkColorTokens.colorFuchsia300, foreground = DarkColorTokens.colorFuchsia1200),
-    AvatarColors(background = DarkColorTokens.colorGreen300, foreground = DarkColorTokens.colorGreen1200),
-    AvatarColors(background = DarkColorTokens.colorPink300, foreground = DarkColorTokens.colorPink1200),
-    AvatarColors(background = DarkColorTokens.colorOrange300, foreground = DarkColorTokens.colorOrange1200),
-    AvatarColors(background = DarkColorTokens.colorCyan300, foreground = DarkColorTokens.colorCyan1200),
-    AvatarColors(background = DarkColorTokens.colorPurple300, foreground = DarkColorTokens.colorPurple1200),
-    AvatarColors(background = DarkColorTokens.colorLime300, foreground = DarkColorTokens.colorLime1200),
-)
+@Composable
+fun avatarColors(): List<AvatarColors> {
+    return listOf(
+        AvatarColors(background = ElementTheme.colors.bgDecorative1, foreground = ElementTheme.colors.textDecorative1),
+        AvatarColors(background = ElementTheme.colors.bgDecorative2, foreground = ElementTheme.colors.textDecorative2),
+        AvatarColors(background = ElementTheme.colors.bgDecorative3, foreground = ElementTheme.colors.textDecorative3),
+        AvatarColors(background = ElementTheme.colors.bgDecorative4, foreground = ElementTheme.colors.textDecorative4),
+        AvatarColors(background = ElementTheme.colors.bgDecorative5, foreground = ElementTheme.colors.textDecorative5),
+        AvatarColors(background = ElementTheme.colors.bgDecorative6, foreground = ElementTheme.colors.textDecorative6),
+    )
+}
 
 @Preview
 @Composable
-internal fun AvatarColorsLightPreview() {
-    val chunks = avatarColorsLight.chunked(4)
+internal fun AvatarColorsPreviewLight() {
     ElementTheme {
+        val chunks = avatarColors().chunked(4)
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             for (chunk in chunks) {
                 AvatarColorRow(chunk)
@@ -74,9 +54,9 @@ internal fun AvatarColorsLightPreview() {
 
 @Preview
 @Composable
-internal fun AvatarColorsDarkPreview() {
-    val chunks = avatarColorsDark.chunked(4)
-    ElementTheme {
+internal fun AvatarColorsPreviewDark() {
+    ElementTheme(darkTheme = true) {
+        val chunks = avatarColors().chunked(4)
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             for (chunk in chunks) {
                 AvatarColorRow(chunk)

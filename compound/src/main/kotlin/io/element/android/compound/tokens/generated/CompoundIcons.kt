@@ -60,6 +60,9 @@ object CompoundIcons {
     @Composable fun Bold(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_bold)
     }
+    @Composable fun Calendar(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_calendar)
+    }
     @Composable fun Chart(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_chart)
     }
@@ -300,6 +303,9 @@ object CompoundIcons {
     @Composable fun MarkAsUnread(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_mark_as_unread)
     }
+    @Composable fun MarkThreadsAsRead(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_mark_threads_as_read)
+    }
     @Composable fun MarkerReadReceipts(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_marker_read_receipts)
     }
@@ -402,6 +408,9 @@ object CompoundIcons {
     @Composable fun Restart(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_restart)
     }
+    @Composable fun Room(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_room)
+    }
     @Composable fun Search(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_search)
     }
@@ -476,6 +485,9 @@ object CompoundIcons {
     }
     @Composable fun UnknownSolid(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_unknown_solid)
+    }
+    @Composable fun Unpin(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_unpin)
     }
     @Composable fun User(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_user)
@@ -554,6 +566,7 @@ object CompoundIcons {
         Attachment(),
         Block(),
         Bold(),
+        Calendar(),
         Chart(),
         Chat(),
         ChatNew(),
@@ -634,6 +647,7 @@ object CompoundIcons {
         LockSolid(),
         MarkAsRead(),
         MarkAsUnread(),
+        MarkThreadsAsRead(),
         MarkerReadReceipts(),
         Mention(),
         Menu(),
@@ -668,6 +682,7 @@ object CompoundIcons {
         ReactionAdd(),
         Reply(),
         Restart(),
+        Room(),
         Search(),
         Send(),
         SendSolid(),
@@ -693,6 +708,7 @@ object CompoundIcons {
         Underline(),
         Unknown(),
         UnknownSolid(),
+        Unpin(),
         User(),
         UserAdd(),
         UserAddSolid(),
@@ -727,6 +743,7 @@ object CompoundIcons {
         R.drawable.ic_compound_attachment,
         R.drawable.ic_compound_block,
         R.drawable.ic_compound_bold,
+        R.drawable.ic_compound_calendar,
         R.drawable.ic_compound_chart,
         R.drawable.ic_compound_chat,
         R.drawable.ic_compound_chat_new,
@@ -807,6 +824,7 @@ object CompoundIcons {
         R.drawable.ic_compound_lock_solid,
         R.drawable.ic_compound_mark_as_read,
         R.drawable.ic_compound_mark_as_unread,
+        R.drawable.ic_compound_mark_threads_as_read,
         R.drawable.ic_compound_marker_read_receipts,
         R.drawable.ic_compound_mention,
         R.drawable.ic_compound_menu,
@@ -841,6 +859,7 @@ object CompoundIcons {
         R.drawable.ic_compound_reaction_add,
         R.drawable.ic_compound_reply,
         R.drawable.ic_compound_restart,
+        R.drawable.ic_compound_room,
         R.drawable.ic_compound_search,
         R.drawable.ic_compound_send,
         R.drawable.ic_compound_send_solid,
@@ -866,6 +885,7 @@ object CompoundIcons {
         R.drawable.ic_compound_underline,
         R.drawable.ic_compound_unknown,
         R.drawable.ic_compound_unknown_solid,
+        R.drawable.ic_compound_unpin,
         R.drawable.ic_compound_user,
         R.drawable.ic_compound_user_add,
         R.drawable.ic_compound_user_add_solid,
