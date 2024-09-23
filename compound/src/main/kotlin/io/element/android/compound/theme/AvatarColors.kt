@@ -42,8 +42,8 @@ fun avatarColors(): List<AvatarColors> {
 @Preview
 @Composable
 internal fun AvatarColorsPreviewLight() {
-    val chunks = avatarColors().chunked(4)
     ElementTheme {
+        val chunks = avatarColors().chunked(4)
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             for (chunk in chunks) {
                 AvatarColorRow(chunk)
@@ -55,8 +55,8 @@ internal fun AvatarColorsPreviewLight() {
 @Preview
 @Composable
 internal fun AvatarColorsPreviewDark() {
-    val chunks = avatarColors().chunked(4)
     ElementTheme(darkTheme = true) {
+        val chunks = avatarColors().chunked(4)
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             for (chunk in chunks) {
                 AvatarColorRow(chunk)
