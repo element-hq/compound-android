@@ -29,6 +29,9 @@ cp -R compound-design-tokens/assets/android/res/drawable ../compound/src/main/re
 cp -R compound-design-tokens/assets/android/src/* ../compound/src/main/kotlin/io/element/android/compound/tokens/generated/
 popd
 
+echo "Adding autoMirrored attribute..."
+python3 ./scripts/addAutoMirrored.py
+
 echo "Removing temporary files..."
 rm -rf tmp
 
