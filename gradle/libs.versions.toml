@@ -12,7 +12,7 @@ compose_bom = "2024.09.02"
 
 # Others
 showkase = "1.0.3"
-ui-tooling-preview-android = "1.6.8"
+ui-tooling-preview-android = "1.7.3"
 kover = "0.7.6"
 roborazzi = "1.26.0"
 
