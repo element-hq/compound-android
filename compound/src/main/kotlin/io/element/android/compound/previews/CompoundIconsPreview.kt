@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -17,13 +18,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import io.element.android.compound.theme.ElementTheme
 import io.element.android.compound.tokens.generated.CompoundIcons
@@ -36,12 +40,26 @@ internal fun IconsCompoundPreviewLight() = ElementTheme {
 
 @Preview(widthDp = 730, heightDp = 1600)
 @Composable
+internal fun IconsCompoundPreviewRtl() = ElementTheme {
+    CompositionLocalProvider(
+        LocalLayoutDirection provides LayoutDirection.Rtl,
+    ) {
+        IconsCompoundPreview(
+            title = "Compound Icons Rtl",
+        )
+    }
+}
+
+@Preview(widthDp = 730, heightDp = 1600)
+@Composable
 internal fun IconsCompoundPreviewDark() = ElementTheme(darkTheme = true) {
     IconsCompoundPreview()
 }
 
 @Composable
-private fun IconsCompoundPreview() {
+private fun IconsCompoundPreview(
+    title: String = "Compound Icons",
+) {
     val context = LocalContext.current
     val content: Sequence<@Composable ColumnScope.() -> Unit> = sequence {
         for (icon in CompoundIcons.allResIds) {
@@ -64,7 +82,7 @@ private fun IconsCompoundPreview() {
         }
     }
     IconsPreview(
-        title = "Compound Icons",
+        title = title,
         content = content.toList(),
     )
 }
@@ -92,9 +110,10 @@ internal fun IconsPreview(
         content.chunked(10).forEach { chunk ->
             Row(
                 modifier = Modifier.height(IntrinsicSize.Max),
-                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                // Keep same order of icons for an easier comparison of previews
+                horizontalArrangement = Arrangement.Absolute.Left,
             ) {
-                chunk.forEach { icon ->
+                chunk.forEachIndexed { index, icon ->
                     Column(
                         modifier = Modifier
                             .background(MaterialTheme.colorScheme.background)
@@ -104,6 +123,9 @@ internal fun IconsPreview(
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         icon()
+                    }
+                    if (index < chunk.size - 1) {
+                        Spacer(modifier = Modifier.width(6.dp))
                     }
                 }
             }

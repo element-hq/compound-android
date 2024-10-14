@@ -7,6 +7,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.captureRoboImage
 import io.element.android.compound.previews.IconsCompoundPreviewDark
 import io.element.android.compound.previews.IconsCompoundPreviewLight
+import io.element.android.compound.previews.IconsCompoundPreviewRtl
 import io.element.android.compound.previews.IconsPreview
 import io.element.android.compound.screenshot.utils.screenshotFile
 import io.element.android.compound.theme.ElementTheme
@@ -24,6 +25,9 @@ class CompoundIconTests {
     fun screenshots() {
         captureRoboImage(file = screenshotFile("Compound Icons - Light.png")) {
             IconsCompoundPreviewLight()
+        }
+        captureRoboImage(file = screenshotFile("Compound Icons - Rtl.png")) {
+            IconsCompoundPreviewRtl()
         }
         captureRoboImage(file = screenshotFile("Compound Icons - Dark.png")) {
             IconsCompoundPreviewDark()

@@ -1,20 +1,20 @@
 [versions]
 # Project
-android_gradle_plugin = "8.5.2"
-kotlin = "2.0.10"
-ksp = "2.0.10-1.0.24"
+android_gradle_plugin = "8.7.0"
+kotlin = "2.0.21"
+ksp = "2.0.21-1.0.25"
 
 # AndroidX
-activity = "1.9.1"
+activity = "1.9.2"
 
 # Compose
-compose_bom = "2024.09.02"
+compose_bom = "2024.09.03"
 
 # Others
 showkase = "1.0.3"
-ui-tooling-preview-android = "1.6.8"
+ui-tooling-preview-android = "1.7.3"
 kover = "0.7.6"
-roborazzi = "1.26.0"
+roborazzi = "1.29.0"
 
 [libraries]
 # Project
@@ -28,7 +28,7 @@ androidx_activity_activity = { module = "androidx.activity:activity", version.re
 androidx_compose_ui_test_junit = { module = "androidx.compose.ui:ui-test-junit4-android" }
 
 # Kotlin
-kotlinx_collections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7"
+kotlinx_collections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.8"
 
 # Test
 test_junit = "junit:junit:4.13.2"
@@ -50,8 +50,8 @@ android_library = { id = "com.android.library", version.ref = "android_gradle_pl
 kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose_compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-maven_publish = { id = "com.vanniktech.maven.publish", version = "0.29.0" }
+maven_publish = { id = "com.vanniktech.maven.publish", version = "0.30.0" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
-dependencycheck = "org.owasp.dependencycheck:10.0.3"
+dependencycheck = "org.owasp.dependencycheck:10.0.4"
 sonarqube = "org.sonarqube:5.1.0.4882"
