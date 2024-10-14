@@ -31,8 +31,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup Gradle
+      - name: ⚙ Setup gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: ⬆️ Publish to Sonatype
+      - name: 🚀 Publish to Sonatype
         run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
