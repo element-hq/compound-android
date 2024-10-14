@@ -96,3 +96,5 @@ lint/tmp/
 
 /tmp
 .DS_Store
+
+/.kotlin
