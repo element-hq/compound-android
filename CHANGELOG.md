@@ -1,5 +1,9 @@
 # Changelog
 
+# v0.1.1:
+- Better support for RTL languages (#85)
+- Update Compose to `BOM 2024.09.03` and other updates of dependencies.
+
 # v0.1.0:
 - Import Semantics color and typography from compound tokens.
 - Replace avatar colors with updated values.
