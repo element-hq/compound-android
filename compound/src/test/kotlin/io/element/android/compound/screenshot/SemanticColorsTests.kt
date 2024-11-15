@@ -174,7 +174,6 @@ class SemanticColorsTests {
                 "textInfoPrimary" to textInfoPrimary,
                 "textLinkExternal" to textLinkExternal,
                 "textOnSolidPrimary" to textOnSolidPrimary,
-                "textPlaceholder" to textPlaceholder,
                 "textPrimary" to textPrimary,
                 "textSecondary" to textSecondary,
                 "textSuccessPrimary" to textSuccessPrimary,
