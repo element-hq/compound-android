@@ -51,6 +51,12 @@ object CompoundIcons {
     @Composable fun ArrowUpRight(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_arrow_up_right)
     }
+    @Composable fun AskToJoin(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_ask_to_join)
+    }
+    @Composable fun AskToJoinSolid(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_ask_to_join_solid)
+    }
     @Composable fun Attachment(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_attachment)
     }
@@ -174,6 +180,9 @@ object CompoundIcons {
     @Composable fun Expand(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_expand)
     }
+    @Composable fun Explore(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_explore)
+    }
     @Composable fun ExportArchive(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_export_archive)
     }
@@ -203,6 +212,9 @@ object CompoundIcons {
     }
     @Composable fun Grid(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_grid)
+    }
+    @Composable fun Group(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_group)
     }
     @Composable fun Help(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_help)
@@ -270,6 +282,9 @@ object CompoundIcons {
     @Composable fun Link(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_link)
     }
+    @Composable fun Linux(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_linux)
+    }
     @Composable fun ListBulleted(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_list_bulleted)
     }
@@ -296,6 +311,9 @@ object CompoundIcons {
     }
     @Composable fun LockSolid(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_lock_solid)
+    }
+    @Composable fun Mac(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_mac)
     }
     @Composable fun MarkAsRead(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_mark_as_read)
@@ -386,6 +404,15 @@ object CompoundIcons {
     }
     @Composable fun Preferences(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_preferences)
+    }
+    @Composable fun PresenceOutline8X8(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_presence_outline_8_x_8)
+    }
+    @Composable fun PresenceSolid8X8(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_presence_solid_8_x_8)
+    }
+    @Composable fun PresenceStrikethrough8X8(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_presence_strikethrough_8_x_8)
     }
     @Composable fun Public(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_public)
@@ -561,6 +588,9 @@ object CompoundIcons {
     @Composable fun WebBrowser(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_web_browser)
     }
+    @Composable fun Windows(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_windows)
+    }
 
     val all @Composable get() = persistentListOf<ImageVector>(
         Admin(),
@@ -569,6 +599,8 @@ object CompoundIcons {
         ArrowRight(),
         ArrowUp(),
         ArrowUpRight(),
+        AskToJoin(),
+        AskToJoinSolid(),
         Attachment(),
         Block(),
         Bold(),
@@ -610,6 +642,7 @@ object CompoundIcons {
         EndCall(),
         Error(),
         Expand(),
+        Explore(),
         ExportArchive(),
         Extensions(),
         ExtensionsSolid(),
@@ -620,6 +653,7 @@ object CompoundIcons {
         Filter(),
         Forward(),
         Grid(),
+        Group(),
         Help(),
         HelpSolid(),
         History(),
@@ -642,6 +676,7 @@ object CompoundIcons {
         Labs(),
         Leave(),
         Link(),
+        Linux(),
         ListBulleted(),
         ListNumbered(),
         LocationNavigator(),
@@ -651,6 +686,7 @@ object CompoundIcons {
         Lock(),
         LockOff(),
         LockSolid(),
+        Mac(),
         MarkAsRead(),
         MarkAsUnread(),
         MarkThreadsAsRead(),
@@ -681,6 +717,9 @@ object CompoundIcons {
         PollsEnd(),
         PopOut(),
         Preferences(),
+        PresenceOutline8X8(),
+        PresenceSolid8X8(),
+        PresenceStrikethrough8X8(),
         Public(),
         QrCode(),
         Quote(),
@@ -739,6 +778,7 @@ object CompoundIcons {
         VolumeOnSolid(),
         Warning(),
         WebBrowser(),
+        Windows(),
     )
 
     val allResIds get() = persistentListOf(
@@ -748,6 +788,8 @@ object CompoundIcons {
         R.drawable.ic_compound_arrow_right,
         R.drawable.ic_compound_arrow_up,
         R.drawable.ic_compound_arrow_up_right,
+        R.drawable.ic_compound_ask_to_join,
+        R.drawable.ic_compound_ask_to_join_solid,
         R.drawable.ic_compound_attachment,
         R.drawable.ic_compound_block,
         R.drawable.ic_compound_bold,
@@ -789,6 +831,7 @@ object CompoundIcons {
         R.drawable.ic_compound_end_call,
         R.drawable.ic_compound_error,
         R.drawable.ic_compound_expand,
+        R.drawable.ic_compound_explore,
         R.drawable.ic_compound_export_archive,
         R.drawable.ic_compound_extensions,
         R.drawable.ic_compound_extensions_solid,
@@ -799,6 +842,7 @@ object CompoundIcons {
         R.drawable.ic_compound_filter,
         R.drawable.ic_compound_forward,
         R.drawable.ic_compound_grid,
+        R.drawable.ic_compound_group,
         R.drawable.ic_compound_help,
         R.drawable.ic_compound_help_solid,
         R.drawable.ic_compound_history,
@@ -821,6 +865,7 @@ object CompoundIcons {
         R.drawable.ic_compound_labs,
         R.drawable.ic_compound_leave,
         R.drawable.ic_compound_link,
+        R.drawable.ic_compound_linux,
         R.drawable.ic_compound_list_bulleted,
         R.drawable.ic_compound_list_numbered,
         R.drawable.ic_compound_location_navigator,
@@ -830,6 +875,7 @@ object CompoundIcons {
         R.drawable.ic_compound_lock,
         R.drawable.ic_compound_lock_off,
         R.drawable.ic_compound_lock_solid,
+        R.drawable.ic_compound_mac,
         R.drawable.ic_compound_mark_as_read,
         R.drawable.ic_compound_mark_as_unread,
         R.drawable.ic_compound_mark_threads_as_read,
@@ -860,6 +906,9 @@ object CompoundIcons {
         R.drawable.ic_compound_polls_end,
         R.drawable.ic_compound_pop_out,
         R.drawable.ic_compound_preferences,
+        R.drawable.ic_compound_presence_outline_8_x_8,
+        R.drawable.ic_compound_presence_solid_8_x_8,
+        R.drawable.ic_compound_presence_strikethrough_8_x_8,
         R.drawable.ic_compound_public,
         R.drawable.ic_compound_qr_code,
         R.drawable.ic_compound_quote,
@@ -918,5 +967,6 @@ object CompoundIcons {
         R.drawable.ic_compound_volume_on_solid,
         R.drawable.ic_compound_warning,
         R.drawable.ic_compound_web_browser,
+        R.drawable.ic_compound_windows,
     )
 }
