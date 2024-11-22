@@ -32,7 +32,7 @@ kotlinx_collections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.8
 
 # Test
 test_junit = "junit:junit:4.13.2"
-test_robolectric = "org.robolectric:robolectric:4.14"
+test_robolectric = "org.robolectric:robolectric:4.14.1"
 test_roborazzi = { module = "io.github.takahirom.roborazzi:roborazzi", version.ref = "roborazzi" }
 test_roborazzi_compose = { module = "io.github.takahirom.roborazzi:roborazzi-compose", version.ref = "roborazzi" }
 test_roborazzi_junit = { module = "io.github.takahirom.roborazzi:roborazzi-junit-rule", version.ref = "roborazzi" }
