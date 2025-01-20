@@ -113,9 +113,14 @@ mavenPublishing {
         url.set("https://github.com/element-hq/compound-android/")
         licenses {
             license {
-                name.set("The Apache License, Version 2.0")
-                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                distribution.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                name.set("GNU Affero General Public License (AGPL) version 3.0")
+                url.set("https://www.gnu.org/licenses/agpl-3.0.txt")
+                distribution.set("https://www.gnu.org/licenses/agpl-3.0.txt")
+            }
+            license {
+                name.set("Element Commercial License")
+                url.set("https://raw.githubusercontent.com/element-hq/compound-android/refs/heads/main/LICENSE-COMMERCIAL")
+                distribution.set("https://raw.githubusercontent.com/element-hq/compound-android/refs/heads/main/LICENSE-COMMERCIAL")
             }
         }
         developers {
