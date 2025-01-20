@@ -90,7 +90,7 @@ android {
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 configure<org.owasp.dependencycheck.gradle.extension.DependencyCheckExtension> {
