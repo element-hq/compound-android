@@ -1,19 +1,10 @@
 import com.vanniktech.maven.publish.SonatypeHost
 
 /*
- * Copyright (c) 2022 New Vector Ltd
+ * Copyright 2022, 2025 New Vector Ltd.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+ * Please see LICENSE files in the repository root for full details.
  */
 
 plugins {
@@ -41,8 +32,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     testOptions {
@@ -90,7 +81,7 @@ android {
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 configure<org.owasp.dependencycheck.gradle.extension.DependencyCheckExtension> {
@@ -113,9 +104,14 @@ mavenPublishing {
         url.set("https://github.com/element-hq/compound-android/")
         licenses {
             license {
-                name.set("The Apache License, Version 2.0")
-                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                distribution.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                name.set("GNU Affero General Public License (AGPL) version 3.0")
+                url.set("https://www.gnu.org/licenses/agpl-3.0.txt")
+                distribution.set("https://www.gnu.org/licenses/agpl-3.0.txt")
+            }
+            license {
+                name.set("Element Commercial License")
+                url.set("https://raw.githubusercontent.com/element-hq/compound-android/refs/heads/main/LICENSE-COMMERCIAL")
+                distribution.set("https://raw.githubusercontent.com/element-hq/compound-android/refs/heads/main/LICENSE-COMMERCIAL")
             }
         }
         developers {
