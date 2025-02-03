@@ -18,7 +18,6 @@ import io.element.android.compound.theme.ColorsSchemeDarkPreview
 import io.element.android.compound.theme.ColorsSchemeLightHcPreview
 import io.element.android.compound.theme.ColorsSchemeLightPreview
 import io.element.android.compound.theme.ElementTheme
-import io.element.android.compound.tokens.generated.compoundColorsHcLight
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config

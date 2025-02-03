@@ -17,10 +17,10 @@
 @file:Suppress("all")
 package io.element.android.compound.tokens.generated
 
-import io.element.android.compound.R
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import io.element.android.compound.R
 import kotlinx.collections.immutable.persistentListOf
 
 object CompoundIcons {
