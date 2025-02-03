@@ -22,7 +22,7 @@ android {
     namespace = "io.element.android.compound"
 
     defaultConfig {
-        compileSdk = 34
+        compileSdk = 35
         minSdk = 23
 
         vectorDrawables {
