@@ -21,7 +21,7 @@ import org.robolectric.annotation.GraphicsMode
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 class CompoundIconTests {
     @Test
-    @Config(sdk = [34], qualifiers = "w1024dp-h2048dp")
+    @Config(sdk = [35], qualifiers = "w1024dp-h2048dp")
     fun screenshots() {
         captureRoboImage(file = screenshotFile("Compound Icons - Light.png")) {
             IconsCompoundPreviewLight()

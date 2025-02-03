@@ -14,7 +14,7 @@ import org.robolectric.annotation.GraphicsMode
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 class AvatarColorsTests {
     @Test
-    @Config(sdk = [34], qualifiers = "xxhdpi")
+    @Config(sdk = [35], qualifiers = "xxhdpi")
     fun screenshots() {
         captureRoboImage(file = screenshotFile("Avatar Colors - Light.png")) {
             AvatarColorsPreviewLight()

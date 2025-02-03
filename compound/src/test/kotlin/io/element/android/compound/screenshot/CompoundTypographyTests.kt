@@ -21,7 +21,7 @@ import org.robolectric.annotation.GraphicsMode
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 class CompoundTypographyTests {
     @Test
-    @Config(sdk = [34], qualifiers = "h2048dp-xxhdpi")
+    @Config(sdk = [35], qualifiers = "h2048dp-xxhdpi")
     fun screenshots() {
         captureRoboImage(file = screenshotFile("Compound Typography.png")) {
             ElementTheme {

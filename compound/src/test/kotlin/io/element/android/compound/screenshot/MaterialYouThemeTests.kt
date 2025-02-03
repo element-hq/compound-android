@@ -25,7 +25,7 @@ import org.robolectric.annotation.GraphicsMode
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 class MaterialYouThemeTests {
     @Test
-    @Config(sdk = [34], qualifiers = "h2048dp-xhdpi")
+    @Config(sdk = [35], qualifiers = "h2048dp-xhdpi")
     fun screenshots() {
         captureRoboImage(file = screenshotFile("MaterialYou Theme - Light.png")) {
             ElementTheme(dynamicColor = true) {

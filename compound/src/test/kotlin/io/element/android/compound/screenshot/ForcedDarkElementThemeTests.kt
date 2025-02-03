@@ -24,7 +24,7 @@ import org.robolectric.annotation.GraphicsMode
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 class ForcedDarkElementThemeTests {
     @Test
-    @Config(sdk = [34], qualifiers = "xxhdpi")
+    @Config(sdk = [35], qualifiers = "xxhdpi")
     fun screenshots() {
         captureRoboImage(file = screenshotFile("ForcedDarkElementTheme.png")) {
             ElementTheme {
