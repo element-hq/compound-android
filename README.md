@@ -12,7 +12,7 @@ The module contains public tokens and color schemes that are later used in `Mate
 
 All tokens can be accessed through the `ElementTheme` object, which contains the following properties:
 
-* `ElementTheme.materialColors`: contains all Material color tokens. In Figma, they're prefixed with `M3/`. It's an alias to `MaterialTheme.colorScheme`.
+* `ElementTheme.materialColors`: contains all Material color tokens. In Figma, they're prefixed with `M3/`. It's an alias to `MaterialTheme.colorScheme`. This should not be used, prefer using `ElementTheme.colors` instead.
 * `ElementTheme.colors`: contains all Compound semantic color tokens. In Figma, they're prefixed with either `Light/` or `Dark/`.
 * `ElementTheme.typography`: contains the Compound `TypographyTokens` values. In Figma, they're prefixed with `Android/font/`.
 
