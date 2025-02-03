@@ -13,11 +13,15 @@ import io.element.android.compound.annotations.CoreColorToken
 import io.element.android.compound.tokens.generated.SemanticColors
 import io.element.android.compound.tokens.generated.internal.DarkColorTokens
 
+/**
+ * See the mapping in
+ * https://www.figma.com/design/G1xy0HDZKJf5TCRFmKb5d5/Compound-Android-Components?node-id=311-14&p=f&t=QcVyNaPEZMDA6RFK-0
+ */
 @OptIn(CoreColorToken::class)
 fun SemanticColors.toMaterialColorSchemeDark(): ColorScheme = darkColorScheme(
-    primary = textPrimary,
+    primary = bgActionPrimaryRest,
     onPrimary = textOnSolidPrimary,
-    primaryContainer = textOnSolidPrimary,
+    primaryContainer = bgCanvasDefault,
     onPrimaryContainer = textPrimary,
     inversePrimary = textOnSolidPrimary,
     secondary = textSecondary,
@@ -26,22 +30,23 @@ fun SemanticColors.toMaterialColorSchemeDark(): ColorScheme = darkColorScheme(
     onSecondaryContainer = textPrimary,
     tertiary = textSecondary,
     onTertiary = textOnSolidPrimary,
-    tertiaryContainer = textPrimary,
+    tertiaryContainer = bgActionPrimaryRest,
     onTertiaryContainer = textOnSolidPrimary,
-    background = textOnSolidPrimary,
+    background = bgCanvasDefault,
     onBackground = textPrimary,
-    surface = textOnSolidPrimary,
+    surface = bgCanvasDefault,
     onSurface = textPrimary,
-    surfaceVariant = DarkColorTokens.colorGray300,
-    onSurfaceVariant = iconSecondary,
+    surfaceVariant = bgSubtleSecondary,
+    onSurfaceVariant = textSecondary,
     surfaceTint = DarkColorTokens.colorGray1000,
     inverseSurface = DarkColorTokens.colorGray1300,
     inverseOnSurface = textOnSolidPrimary,
-    error = bgCriticalPrimary,
+    error = textCriticalPrimary,
     onError = textOnSolidPrimary,
     errorContainer = DarkColorTokens.colorRed400,
     onErrorContainer = textCriticalPrimary,
-    outline = iconSecondary,
+    outline = borderInteractivePrimary,
     outlineVariant = DarkColorTokens.colorAlphaGray400,
-    scrim = bgSubtleSecondary,
+    // Note: for light it will be colorGray1400
+    scrim = DarkColorTokens.colorGray300.copy(alpha = 0.32f),
 )
