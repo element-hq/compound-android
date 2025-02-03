@@ -36,7 +36,7 @@ fun ColorPreview(
             modifier = Modifier.padding(horizontal = 10.dp),
             text = name + " " + color.toHrf(),
             fontSize = 6.sp,
-            color = foregroundColor
+            color = foregroundColor,
         )
         val backgroundBrush = Brush.linearGradient(
             listOf(

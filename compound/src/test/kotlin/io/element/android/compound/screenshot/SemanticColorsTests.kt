@@ -25,7 +25,7 @@ import org.robolectric.annotation.GraphicsMode
 @RunWith(AndroidJUnit4::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 class SemanticColorsTests {
-    @Config(sdk = [34], qualifiers = "h2500dp-xhdpi")
+    @Config(sdk = [35], qualifiers = "h2500dp-xhdpi")
     @Test
     fun screenshots() {
         captureRoboImage(file = screenshotFile("Compound Semantic Colors - Light.png")) {

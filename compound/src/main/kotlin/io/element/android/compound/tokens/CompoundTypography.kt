@@ -15,8 +15,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import io.element.android.compound.tokens.generated.TypographyTokens
 import com.airbnb.android.showkase.annotation.ShowkaseTypography
+import io.element.android.compound.tokens.generated.TypographyTokens
 
 // 32px (Material) vs 34px, it's the closest one
 @ShowkaseTypography(name = "M3 Headline Large", group = "Compound")
