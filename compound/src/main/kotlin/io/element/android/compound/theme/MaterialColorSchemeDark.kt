@@ -20,13 +20,16 @@ fun SemanticColors.toMaterialColorSchemeDark(): ColorScheme = darkColorScheme(
     primaryContainer = bgActionPrimaryRest,
     onPrimaryContainer = textOnSolidPrimary,
     inversePrimary = bgCanvasDefault,
-    secondary = bgActionSecondaryRest,
+    // Cannot use bgActionSecondaryRest, the value is not correct
+    secondary = bgActionPrimaryRest,
     onSecondary = textOnSolidPrimary,
-    secondaryContainer = bgActionSecondaryRest,
-    onSecondaryContainer = textPrimary,
-    tertiary = bgActionSecondaryRest,
+    // Cannot use bgActionSecondaryRest, the value is not correct
+    secondaryContainer = bgActionPrimaryRest,
+    onSecondaryContainer = textOnSolidPrimary,
+    // Cannot use bgActionSecondaryRest, the value is not correct
+    tertiary = bgActionPrimaryRest,
     onTertiary = textOnSolidPrimary,
-    tertiaryContainer = bgCanvasDefault,
+    tertiaryContainer = bgActionPrimaryRest,
     onTertiaryContainer = textOnSolidPrimary,
     background = bgCanvasDefault,
     onBackground = textPrimary,
