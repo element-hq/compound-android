@@ -53,5 +53,5 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 maven_publish = { id = "com.vanniktech.maven.publish", version = "0.30.0" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
-dependencycheck = "org.owasp.dependencycheck:11.1.0"
+dependencycheck = "org.owasp.dependencycheck:11.1.1"
 sonarqube = "org.sonarqube:5.1.0.4882"
