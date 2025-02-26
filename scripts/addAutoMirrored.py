@@ -88,6 +88,7 @@ files = [
     "ic_compound_video_call_solid.xml",
     "ic_compound_visibility_off.xml",
     "ic_compound_voice_call.xml",
+    "ic_compound_voice_call_solid.xml",
     "ic_compound_volume_off.xml",
     "ic_compound_volume_off_solid.xml",
     "ic_compound_volume_on.xml",
