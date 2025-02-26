@@ -1,9 +1,10 @@
 /*
- * Copyright 2024 New Vector Ltd.
+ * Copyright 2025 New Vector Ltd.
  *
  * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
  * Please see LICENSE files in the repository root for full details.
  */
+
 
 /**
  * !!! WARNING !!!
@@ -17,10 +18,10 @@
 @file:Suppress("all")
 package io.element.android.compound.tokens.generated
 
+import io.element.android.compound.R
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import io.element.android.compound.R
 import kotlinx.collections.immutable.persistentListOf
 
 object CompoundIcons {
@@ -50,6 +51,9 @@ object CompoundIcons {
     }
     @Composable fun Attachment(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_attachment)
+    }
+    @Composable fun Audio(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_audio)
     }
     @Composable fun Block(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_block)
@@ -138,11 +142,17 @@ object CompoundIcons {
     @Composable fun Devices(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_devices)
     }
+    @Composable fun DialPad(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_dial_pad)
+    }
     @Composable fun Document(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_document)
     }
     @Composable fun Download(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_download)
+    }
+    @Composable fun DownloadIos(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_download_ios)
     }
     @Composable fun DragGrid(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_drag_grid)
@@ -167,6 +177,9 @@ object CompoundIcons {
     }
     @Composable fun Error(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_error)
+    }
+    @Composable fun ErrorSolid(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_error_solid)
     }
     @Composable fun Expand(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_expand)
@@ -206,6 +219,12 @@ object CompoundIcons {
     }
     @Composable fun Group(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_group)
+    }
+    @Composable fun HeadphonesOffSolid(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_headphones_off_solid)
+    }
+    @Composable fun HeadphonesSolid(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_headphones_solid)
     }
     @Composable fun Help(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_help)
@@ -281,6 +300,9 @@ object CompoundIcons {
     }
     @Composable fun ListNumbered(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_list_numbered)
+    }
+    @Composable fun ListView(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_list_view)
     }
     @Composable fun LocationNavigator(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_location_navigator)
@@ -477,6 +499,9 @@ object CompoundIcons {
     @Composable fun Spotlight(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_spotlight)
     }
+    @Composable fun SpotlightView(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_spotlight_view)
+    }
     @Composable fun Strikethrough(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_strikethrough)
     }
@@ -561,6 +586,9 @@ object CompoundIcons {
     @Composable fun VoiceCall(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_voice_call)
     }
+    @Composable fun VoiceCallSolid(): ImageVector {
+        return ImageVector.vectorResource(R.drawable.ic_compound_voice_call_solid)
+    }
     @Composable fun VolumeOff(): ImageVector {
         return ImageVector.vectorResource(R.drawable.ic_compound_volume_off)
     }
@@ -593,6 +621,7 @@ object CompoundIcons {
         AskToJoin(),
         AskToJoinSolid(),
         Attachment(),
+        Audio(),
         Block(),
         Bold(),
         Calendar(),
@@ -622,8 +651,10 @@ object CompoundIcons {
         DarkMode(),
         Delete(),
         Devices(),
+        DialPad(),
         Document(),
         Download(),
+        DownloadIos(),
         DragGrid(),
         DragList(),
         Edit(),
@@ -632,6 +663,7 @@ object CompoundIcons {
         EmailSolid(),
         EndCall(),
         Error(),
+        ErrorSolid(),
         Expand(),
         Explore(),
         ExportArchive(),
@@ -645,6 +677,8 @@ object CompoundIcons {
         Forward(),
         Grid(),
         Group(),
+        HeadphonesOffSolid(),
+        HeadphonesSolid(),
         Help(),
         HelpSolid(),
         History(),
@@ -670,6 +704,7 @@ object CompoundIcons {
         Linux(),
         ListBulleted(),
         ListNumbered(),
+        ListView(),
         LocationNavigator(),
         LocationNavigatorCentred(),
         LocationPin(),
@@ -735,6 +770,7 @@ object CompoundIcons {
         SignOut(),
         Spinner(),
         Spotlight(),
+        SpotlightView(),
         Strikethrough(),
         SwitchCameraSolid(),
         TakePhoto(),
@@ -763,6 +799,7 @@ object CompoundIcons {
         VisibilityOff(),
         VisibilityOn(),
         VoiceCall(),
+        VoiceCallSolid(),
         VolumeOff(),
         VolumeOffSolid(),
         VolumeOn(),
@@ -782,6 +819,7 @@ object CompoundIcons {
         R.drawable.ic_compound_ask_to_join,
         R.drawable.ic_compound_ask_to_join_solid,
         R.drawable.ic_compound_attachment,
+        R.drawable.ic_compound_audio,
         R.drawable.ic_compound_block,
         R.drawable.ic_compound_bold,
         R.drawable.ic_compound_calendar,
@@ -811,8 +849,10 @@ object CompoundIcons {
         R.drawable.ic_compound_dark_mode,
         R.drawable.ic_compound_delete,
         R.drawable.ic_compound_devices,
+        R.drawable.ic_compound_dial_pad,
         R.drawable.ic_compound_document,
         R.drawable.ic_compound_download,
+        R.drawable.ic_compound_download_ios,
         R.drawable.ic_compound_drag_grid,
         R.drawable.ic_compound_drag_list,
         R.drawable.ic_compound_edit,
@@ -821,6 +861,7 @@ object CompoundIcons {
         R.drawable.ic_compound_email_solid,
         R.drawable.ic_compound_end_call,
         R.drawable.ic_compound_error,
+        R.drawable.ic_compound_error_solid,
         R.drawable.ic_compound_expand,
         R.drawable.ic_compound_explore,
         R.drawable.ic_compound_export_archive,
@@ -834,6 +875,8 @@ object CompoundIcons {
         R.drawable.ic_compound_forward,
         R.drawable.ic_compound_grid,
         R.drawable.ic_compound_group,
+        R.drawable.ic_compound_headphones_off_solid,
+        R.drawable.ic_compound_headphones_solid,
         R.drawable.ic_compound_help,
         R.drawable.ic_compound_help_solid,
         R.drawable.ic_compound_history,
@@ -859,6 +902,7 @@ object CompoundIcons {
         R.drawable.ic_compound_linux,
         R.drawable.ic_compound_list_bulleted,
         R.drawable.ic_compound_list_numbered,
+        R.drawable.ic_compound_list_view,
         R.drawable.ic_compound_location_navigator,
         R.drawable.ic_compound_location_navigator_centred,
         R.drawable.ic_compound_location_pin,
@@ -924,6 +968,7 @@ object CompoundIcons {
         R.drawable.ic_compound_sign_out,
         R.drawable.ic_compound_spinner,
         R.drawable.ic_compound_spotlight,
+        R.drawable.ic_compound_spotlight_view,
         R.drawable.ic_compound_strikethrough,
         R.drawable.ic_compound_switch_camera_solid,
         R.drawable.ic_compound_take_photo,
@@ -952,6 +997,7 @@ object CompoundIcons {
         R.drawable.ic_compound_visibility_off,
         R.drawable.ic_compound_visibility_on,
         R.drawable.ic_compound_voice_call,
+        R.drawable.ic_compound_voice_call_solid,
         R.drawable.ic_compound_volume_off,
         R.drawable.ic_compound_volume_off_solid,
         R.drawable.ic_compound_volume_on,
