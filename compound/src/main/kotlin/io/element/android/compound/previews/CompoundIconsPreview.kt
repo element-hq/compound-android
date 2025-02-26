@@ -1,3 +1,10 @@
+/*
+ * Copyright 2023, 2025 New Vector Ltd.
+ *
+ * SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial
+ * Please see LICENSE files in the repository root for full details.
+ */
+
 package io.element.android.compound.previews
 
 import androidx.compose.foundation.background
@@ -32,13 +39,13 @@ import androidx.compose.ui.unit.dp
 import io.element.android.compound.theme.ElementTheme
 import io.element.android.compound.tokens.generated.CompoundIcons
 
-@Preview(widthDp = 730, heightDp = 1600)
+@Preview(widthDp = 730, heightDp = 1800)
 @Composable
 internal fun IconsCompoundPreviewLight() = ElementTheme {
     IconsCompoundPreview()
 }
 
-@Preview(widthDp = 730, heightDp = 1600)
+@Preview(widthDp = 730, heightDp = 1800)
 @Composable
 internal fun IconsCompoundPreviewRtl() = ElementTheme {
     CompositionLocalProvider(
@@ -50,7 +57,7 @@ internal fun IconsCompoundPreviewRtl() = ElementTheme {
     }
 }
 
-@Preview(widthDp = 730, heightDp = 1600)
+@Preview(widthDp = 730, heightDp = 1800)
 @Composable
 internal fun IconsCompoundPreviewDark() = ElementTheme(darkTheme = true) {
     IconsCompoundPreview()
