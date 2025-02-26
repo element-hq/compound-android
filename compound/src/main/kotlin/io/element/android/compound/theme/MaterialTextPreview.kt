@@ -104,7 +104,10 @@ private fun MaterialPreview(
                     modifier = Modifier
                         .padding(12.dp)
                         .fillMaxWidth()
-                        .background(color = MaterialTheme.colorScheme.scrim)
+                        // the alpha applied to the scrim color does not seem to be mandatory.
+                        // The library ignores the alpha level provided and apply it's own.
+                        // For testing the color, manually set an alpha.
+                        .background(color = MaterialTheme.colorScheme.scrim.copy(alpha = 0.32f))
                         .padding(16.dp),
                     text = "${"Scrim"}\n${MaterialTheme.colorScheme.scrim.toHrf()}",
                     style = LocalTextStyle.current.copy(fontFamily = FontFamily.Monospace),

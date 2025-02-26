@@ -48,5 +48,5 @@ fun SemanticColors.toMaterialColorSchemeDark(): ColorScheme = darkColorScheme(
     outline = borderInteractivePrimary,
     outlineVariant = DarkColorTokens.colorAlphaGray400,
     // Note: for light it will be colorGray1400
-    scrim = DarkColorTokens.colorGray300.copy(alpha = 0.32f),
+    scrim = DarkColorTokens.colorGray300,
 )

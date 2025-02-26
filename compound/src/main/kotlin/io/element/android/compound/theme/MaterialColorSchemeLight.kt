@@ -41,12 +41,12 @@ fun SemanticColors.toMaterialColorSchemeLight(): ColorScheme = lightColorScheme(
     surfaceTint = LightColorTokens.colorGray1000,
     inverseSurface = LightColorTokens.colorGray1300,
     inverseOnSurface = textOnSolidPrimary,
-    error = textCriticalPrimary, 
+    error = textCriticalPrimary,
     onError = textOnSolidPrimary,
     errorContainer = LightColorTokens.colorRed400,
     onErrorContainer = textCriticalPrimary,
     outline = borderInteractivePrimary,
     outlineVariant = LightColorTokens.colorAlphaGray400,
     // Note: for dark it will be colorGray300
-    scrim = LightColorTokens.colorGray1400.copy(alpha = 0.32f),
+    scrim = LightColorTokens.colorGray1400,
 )
