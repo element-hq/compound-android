@@ -1,5 +1,11 @@
 # Changelog
 
+# v25.2.26:
+- With tokens from https://github.com/element-hq/compound-design-tokens/releases/tag/v4.0.0
+
+# v0.2.0:
+- With tokens from https://github.com/element-hq/compound-design-tokens/releases/tag/v2.1.0
+
 # v0.1.1:
 - Better support for RTL languages (#85)
 - Update Compose to `BOM 2024.09.03` and other updates of dependencies.
