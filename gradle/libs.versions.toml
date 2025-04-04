@@ -13,7 +13,7 @@ compose_bom = "2025.03.01"
 # Others
 showkase = "1.0.3"
 ui-tooling-preview-android = "1.7.8"
-kover = "0.7.6"
+kover = "0.9.1"
 roborazzi = "1.43.1"
 
 [libraries]
