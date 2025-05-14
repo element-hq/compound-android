@@ -50,7 +50,7 @@ android_library = { id = "com.android.library", version.ref = "android_gradle_pl
 kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose_compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-maven_publish = { id = "com.vanniktech.maven.publish", version = "0.31.0" }
+maven_publish = { id = "com.vanniktech.maven.publish", version = "0.32.0" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
 dependencycheck = "org.owasp.dependencycheck:12.1.1"
