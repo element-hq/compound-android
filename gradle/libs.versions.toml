@@ -28,7 +28,7 @@ androidx_activity_activity = { module = "androidx.activity:activity", version.re
 androidx_compose_ui_test_junit = { module = "androidx.compose.ui:ui-test-junit4-android" }
 
 # Kotlin
-kotlinx_collections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.8"
+kotlinx_collections = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.0"
 
 # Test
 test_junit = "junit:junit:4.13.2"
