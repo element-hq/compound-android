@@ -8,7 +8,7 @@ ksp = "2.1.20-2.0.0"
 activity = "1.10.1"
 
 # Compose
-compose_bom = "2025.03.01"
+compose_bom = "2025.05.01"
 
 # Others
 showkase = "1.0.3"
