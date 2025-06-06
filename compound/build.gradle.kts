@@ -90,7 +90,7 @@ configure<org.owasp.dependencycheck.gradle.extension.DependencyCheckExtension> {
 }
 
 mavenPublishing {
-    publishToMavenCentral(SonatypeHost.S01)
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
 
     coordinates("io.element.android", "compound-android", "25.4.4")
