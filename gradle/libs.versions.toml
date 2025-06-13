@@ -11,7 +11,7 @@ activity = "1.10.1"
 compose_bom = "2025.05.01"
 
 # Others
-showkase = "1.0.3"
+showkase = "1.0.4"
 ui-tooling-preview-android = "1.8.2"
 kover = "0.7.6"
 roborazzi = "1.44.0"
