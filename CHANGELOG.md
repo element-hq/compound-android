@@ -1,6 +1,9 @@
 # Changelog
 
-# v25.4.4:
+v25.7.4:
+- With tokens from https://github.com/element-hq/compound-design-tokens/releases/tag/v5.0.0
+
+v25.4.4:
 - With tokens from https://github.com/element-hq/compound-design-tokens/releases/tag/v4.0.1
 
 # v25.2.26:
