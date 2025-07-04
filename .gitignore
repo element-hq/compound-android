@@ -40,8 +40,10 @@ captures/
 .idea/.name
 .idea/androidTestResultsUserPreferences.xml
 .idea/assetWizardSettings.xml
+.idea/AndroidProjectSystem.xml
 .idea/compiler.xml
 .idea/deploymentTargetDropDown.xml
+.idea/deploymentTargetSelector.xml
 .idea/gradle.xml
 .idea/jarRepositories.xml
 .idea/misc.xml
@@ -55,6 +57,7 @@ captures/
 .idea/libraries
 # Android Studio 3 in .gitignore file.
 .idea/caches
+.idea/copilot
 .idea/inspectionProfiles
 # Shelved changes in the IDE
 .idea/shelf
