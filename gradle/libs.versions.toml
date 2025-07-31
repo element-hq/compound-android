@@ -36,7 +36,7 @@ test_robolectric = "org.robolectric:robolectric:4.15.1"
 test_roborazzi = { module = "io.github.takahirom.roborazzi:roborazzi", version.ref = "roborazzi" }
 test_roborazzi_compose = { module = "io.github.takahirom.roborazzi:roborazzi-compose", version.ref = "roborazzi" }
 test_roborazzi_junit = { module = "io.github.takahirom.roborazzi:roborazzi-junit-rule", version.ref = "roborazzi" }
-test_espresso_core = "androidx.test.espresso:espresso-core:3.6.1"
+test_espresso_core = "androidx.test.espresso:espresso-core:3.7.0"
 
 # Others
 showkase = { module = "com.airbnb.android:showkase", version.ref = "showkase" }
