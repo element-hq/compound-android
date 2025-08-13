@@ -2,18 +2,18 @@
 
 set -e
 
-SHORT=b,:
-LONG=branch,:
-BRANCH='main'
+SHORT=t,:
+LONG=tag,:
+TAG='v1.4.0'
 
-while getopts b: flag
+while getopts t: flag
 do
     case "${flag}" in
-        b) BRANCH=${OPTARG};;
+        t) TAG=${OPTARG};;
     esac
 done
 
-echo "Branch used: $BRANCH"
+echo "Tag used: $TAG"
 
 echo "Cloning the compound-design-tokens repository..."
 if [ -d tmp ]; then
@@ -22,7 +22,7 @@ if [ -d tmp ]; then
 fi
 mkdir tmp
 pushd tmp
-git clone --branch $BRANCH https://github.com/vector-im/compound-design-tokens
+git clone --depth 1 --branch $TAG https://github.com/element-hq/compound-design-tokens
 
 echo "Copying files from tokens repository..."
 cp -R compound-design-tokens/assets/android/res/drawable ../compound/src/main/res/
