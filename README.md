@@ -1,3 +1,11 @@
+# ⛔️ Deprecated Repository ⛔️
+
+The Compound Android project has moved and now lives within Element X Android itself. You can find it here:
+
+https://github.com/element-hq/element-x-android/tree/develop/libraries/compound
+
+<hr /> 
+
 <p align="center"><img src="https://compound.element.io/logo-readme.png" width="300" alt="" /></p>
 
 # Compound Android
